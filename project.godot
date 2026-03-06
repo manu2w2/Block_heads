@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Block-heads"
+run/main_scene="uid://dg5jjw2wi3iax"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,13 @@ config/icon="res://icon.svg"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[input]
+
+ui={
+"deadzone": 0.2,
+"events": []
+}
 
 [physics]
 
