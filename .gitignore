@@ -1,0 +1,80 @@
+# ══════════════════════════════════════════════
+#  .gitignore — Bitcoin Educativo (Godot 4)
+# ══════════════════════════════════════════════
+
+# ── Godot 4 — archivos del editor ─────────────
+.godot/
+.import/
+.nomedia
+*.uid
+*.translation
+
+# ── Exportación ───────────────────────────────
+export.cfg
+export_presets.cfg
+export_credentials.cfg
+
+# ── Builds / binarios ─────────────────────────
+builds/
+*.exe
+*.apk
+*.aab
+*.ipa
+*.pck
+*.zip
+
+# ── Mono / .NET (por si se migra después) ─────
+.mono/
+data_*/
+mono_crash.*.json
+
+# ══════════════════════════════════════════════
+#  Sistemas operativos
+# ══════════════════════════════════════════════
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.directory
+
+# ══════════════════════════════════════════════
+#  Editores de código
+# ══════════════════════════════════════════════
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains / Rider
+.idea/
+*.iml
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# ══════════════════════════════════════════════
+#  Temporales y logs
+# ══════════════════════════════════════════════
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
