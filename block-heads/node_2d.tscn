@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dg5jjw2wi3iax"]
+
+[ext_resource type="Script" uid="uid://elom83ku5kfj" path="res://collision_shape_2d.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=1051558539]
+metadata/_edit_vertical_guides_ = [2.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1889127752]
+script = ExtResource("1_wtcfe")
