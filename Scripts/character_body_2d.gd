@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 120.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(_delta: float) -> void:
@@ -30,6 +30,7 @@ func _animate(dir: Vector2) -> void:
 			anim.flip_h = true
 		else:
 			anim.play("Izquierda")
+			anim.flip_h = false
 			
 	else:
 		if dir.y > 0.0:
