@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://doq5d1fy5dm8h"]
+
+[ext_resource type="Script" uid="uid://21k35xhkogqq" path="res://Scripts/Cursor.gd" id="1_eobco"]
+[ext_resource type="Texture2D" uid="uid://dluk7asrqd84j" path="res://Sprites/cursor.png" id="2_b0jkg"]
+[ext_resource type="PackedScene" uid="uid://dsnve3xewurnd" path="res://Escenas/interacting_component.tscn" id="6_r61vb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16lql"]
+atlas = ExtResource("2_b0jkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cpak"]
+atlas = ExtResource("2_b0jkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eobco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16lql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cpak")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d7sh"]
+radius = 6.0
+height = 14.0
+
+[node name="Cursor" type="Node2D" unique_id=1051558539]
+metadata/_edit_vertical_guides_ = [2.0]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1244790209]
+script = ExtResource("1_eobco")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=475388360]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_eobco")
+animation = &"Idle"
+frame_progress = 0.31117415
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "C:/Users/victo/Pictures/block-heads/Sprite-0001.aseprite",
+"source_uid": -1
+}
+metadata/_aseprite_wizard_source_file_hash_ = "20b58666950fa01a2dc3d434c71bb857"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1253644340]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_4d7sh")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=907126720]
+position = Vector2(-7, 4)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="InteractingComponent" parent="CharacterBody2D" unique_id=966572799 instance=ExtResource("6_r61vb")]
+position = Vector2(0, 3)

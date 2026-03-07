@@ -30,6 +30,9 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.34145677, 0.27997744, 0.020793833, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p25xy"]
+bg_color = Color(0.6, 0.49803922, 0.05882353, 1)
+
 [node name="menu" type="Control" unique_id=1525961292]
 layout_mode = 3
 anchors_preset = 15
@@ -94,6 +97,59 @@ toggle_mode = true
 text = "Salir"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=909626847]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2092241638]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 54.0
+offset_right = 638.0
+offset_bottom = 617.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p25xy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1288396192]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1574814612]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Opciones"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=611558642]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=329921491]
+layout_mode = 2
+text = "Volumen Musica"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1292674035]
+layout_mode = 2
+size_flags_horizontal = 3
+tick_count = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1222248711]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=711804506]
+layout_mode = 2
+text = "Volumen Efectos"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=200603387]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer" unique_id=839295463]
+layout_mode = 2
+text = "Full Screen"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=62425194]
+layout_mode = 2
+text = "Volver"
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/opciones" to="." method="_on_opciones_pressed"]

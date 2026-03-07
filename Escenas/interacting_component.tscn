@@ -7,8 +7,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_1cdhc"]
 font = ExtResource("1_4mcoa")
-font_size = 12
-outline_size = 2
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="InteractingComponent" type="Node2D" unique_id=966572799]
@@ -27,6 +26,7 @@ shape = SubResource("CircleShape2D_35nh8")
 
 [node name="InteractLabel" type="Label" parent="." unique_id=2051604307]
 z_index = 10
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

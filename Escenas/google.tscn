@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://u8u2hyxwuabo" path="res://Assets/escritorio.png" id="1_njcon"]
 [ext_resource type="Texture2D" uid="uid://dfswx8jplxwrd" path="res://Assets/gugul.png" id="2_wibu7"]
+[ext_resource type="PackedScene" uid="uid://doq5d1fy5dm8h" path="res://Escenas/cursor.tscn" id="3_wibu7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlndw"]
 texture = ExtResource("1_njcon")
@@ -631,3 +632,6 @@ frame_progress = 0.34295353
 
 [node name="Camera2D" type="Camera2D" parent="StaticBody2D" unique_id=904309570]
 zoom = Vector2(2.2, 2.2)
+
+[node name="Cursor" parent="." unique_id=1051558539 instance=ExtResource("3_wibu7")]
+position = Vector2(25, 53)
