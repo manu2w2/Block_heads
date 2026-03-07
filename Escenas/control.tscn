@@ -10,8 +10,8 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1390705879]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 225.0
+offset_bottom = 106.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=795730123]
 layout_mode = 0

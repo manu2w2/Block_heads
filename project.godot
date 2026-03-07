@@ -15,6 +15,10 @@ run/main_scene="uid://dg5jjw2wi3iax"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/enable_input=true
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
