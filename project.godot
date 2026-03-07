@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Block-heads"
-run/main_scene="uid://dg5jjw2wi3iax"
+run/main_scene="uid://cmhebnbxkimoi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,7 @@ driver/enable_input=true
 [editor]
 
 version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [input]
 
@@ -38,7 +39,7 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="world"
-2d_physics/layer_2="interactions"
+2d_physics/layer_2="interactable"
 
 [physics]
 
@@ -46,7 +47,6 @@ interact={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

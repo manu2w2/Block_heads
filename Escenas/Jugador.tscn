@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg5jjw2wi3iax"]
 
 [ext_resource type="Texture2D" uid="uid://c24if7pbwlrnu" path="res://Sprites/Gongorita-Sheet.png" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://b8yayx4vdb1ib" path="res://Scripts/jugador.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://bj2n55o5sugyv" path="res://Scripts/character_body_2d.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://dukykd4xdvfu2" path="res://Sprites/Gongorita-walk-back.png" id="2_muoba"]
 [ext_resource type="Texture2D" uid="uid://6tkjgc124ox3" path="res://Sprites/Gongorita-walk-front.png" id="3_fwv5a"]
 [ext_resource type="Texture2D" uid="uid://vgixuucqfi4w" path="res://Sprites/Gongorita_walk.png" id="5_btktc"]
@@ -199,8 +199,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d7sh"]
-radius = 6.0
-height = 14.0
+radius = 5.0
+height = 20.0
 
 [node name="Jugador" type="Node2D" unique_id=1051558539]
 metadata/_edit_vertical_guides_ = [2.0]
@@ -212,7 +212,7 @@ script = ExtResource("1_wtcfe")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wtcfe")
 animation = &"Abajo"
-frame_progress = 0.14855005
+frame_progress = 0.017322732
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -235,7 +235,6 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "20b58666950fa01a2dc3d434c71bb857"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1253644340]
-position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_4d7sh")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=907126720]
@@ -243,5 +242,4 @@ position = Vector2(-7, 4)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="InteractingComponent" parent="CharacterBody2D" unique_id=966572799 instance=ExtResource("6_fwv5a")]
-position = Vector2(0, 3)
+[node name="InteractingComponent" parent="CharacterBody2D" unique_id=970504961 instance=ExtResource("6_fwv5a")]
