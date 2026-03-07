@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bikxy526ld2fm"]
+
+[ext_resource type="Texture2D" uid="uid://ds3v233rtwgpg" path="res://tiles/file tile.png" id="1_vgy1v"]
+[ext_resource type="Texture2D" uid="uid://8tjlhjcx7y3x" path="res://tiles/calle nueva.png" id="2_2i28s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2io2x"]
+texture = ExtResource("1_vgy1v")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obptw"]
+texture = ExtResource("2_2i28s")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_of1hf"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_2io2x")
+sources/2 = SubResource("TileSetAtlasSource_obptw")
+
+[node name="Calle" type="Node2D" unique_id=1480039134]
+
+[node name="Tilemap" type="Node2D" parent="." unique_id=1479393525]
+
+[node name="background" type="TileMapLayer" parent="Tilemap" unique_id=880889121]
+
+[node name="foreground" type="TileMapLayer" parent="Tilemap/background" unique_id=173471606]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_of1hf")
