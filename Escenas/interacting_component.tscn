@@ -1,30 +1,29 @@
 [gd_scene format=3 uid="uid://dsnve3xewurnd"]
 
-[ext_resource type="FontFile" uid="uid://cmu2ltjikmyne" path="res://alagard.ttf" id="1_4mcoa"]
-[ext_resource type="Script" uid="uid://s0fk8ukqet45" path="res://Scripts/interacting_component.gd" id="1_h66gv"]
+[ext_resource type="FontFile" uid="uid://2nkc7012e1gr" path="res://Escenas/alagard.ttf" id="1_4mcoa"]
+[ext_resource type="Script" uid="uid://dg167rlccx24e" path="res://Scripts/interacting_component.gd" id="1_h66gv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35nh8"]
+radius = 12.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_1cdhc"]
 font = ExtResource("1_4mcoa")
-outline_size = 4
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="InteractingComponent" type="Node2D" unique_id=966572799]
-light_mask = 0
-visibility_layer = 2
+[node name="InteractingComponent" type="Node2D" unique_id=970504961]
 script = ExtResource("1_h66gv")
 
-[node name="InteractRange" type="Area2D" parent="." unique_id=1028259622]
+[node name="InteractRange" type="Area2D" parent="." unique_id=483246982]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange" unique_id=69316851]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange" unique_id=1180352528]
 light_mask = 0
 visibility_layer = 2
 shape = SubResource("CircleShape2D_35nh8")
 
-[node name="InteractLabel" type="Label" parent="." unique_id=2051604307]
+[node name="InteractLabel" type="Label" parent="." unique_id=2037923326]
 z_index = 10
 texture_filter = 1
 anchors_preset = 8

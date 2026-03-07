@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dg5jjw2wi3iax"]
 
 [ext_resource type="Texture2D" uid="uid://c24if7pbwlrnu" path="res://Sprites/Gongorita-Sheet.png" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://cshc6c7pajl1l" path="res://Scripts/character_body_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://bj2n55o5sugyv" path="res://Scripts/character_body_2d.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://dukykd4xdvfu2" path="res://Sprites/Gongorita-walk-back.png" id="2_muoba"]
 [ext_resource type="Texture2D" uid="uid://6tkjgc124ox3" path="res://Sprites/Gongorita-walk-front.png" id="3_fwv5a"]
 [ext_resource type="Texture2D" uid="uid://vgixuucqfi4w" path="res://Sprites/Gongorita_walk.png" id="5_btktc"]
+[ext_resource type="PackedScene" uid="uid://dsnve3xewurnd" path="res://Escenas/interacting_component.tscn" id="6_fwv5a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2dh0"]
 atlas = ExtResource("3_fwv5a")
@@ -240,3 +241,5 @@ shape = SubResource("CapsuleShape2D_4d7sh")
 position = Vector2(-7, 4)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="InteractingComponent" parent="CharacterBody2D" unique_id=970504961 instance=ExtResource("6_fwv5a")]
