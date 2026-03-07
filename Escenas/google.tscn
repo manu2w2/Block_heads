@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dcmus4lb8d308"]
 
 [ext_resource type="Texture2D" uid="uid://u8u2hyxwuabo" path="res://Assets/escritorio.png" id="1_njcon"]
+[ext_resource type="Script" uid="uid://sqb6wvv8rln6" path="res://Escenas/Bitcoin.gd" id="2_lx1j7"]
 [ext_resource type="Texture2D" uid="uid://dfswx8jplxwrd" path="res://Assets/gugul.png" id="2_wibu7"]
+[ext_resource type="PackedScene" uid="uid://bataee1o4ljjo" path="res://Escenas/interactable.tscn" id="3_tlndw"]
 [ext_resource type="PackedScene" uid="uid://doq5d1fy5dm8h" path="res://Escenas/cursor.tscn" id="3_wibu7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlndw"]
@@ -613,10 +615,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uxfe3")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"Busqueda",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx1j7"]
+radius = 29.15476
 
 [node name="Computadora" type="Node2D" unique_id=577508040]
 
@@ -624,14 +629,20 @@ animations = [{
 tile_set = SubResource("TileSet_lx1j7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1502344489]
+script = ExtResource("2_lx1j7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1357661748]
 sprite_frames = SubResource("SpriteFrames_0dq6q")
-frame = 7
-frame_progress = 0.34295353
+animation = &"Busqueda"
 
 [node name="Camera2D" type="Camera2D" parent="StaticBody2D" unique_id=904309570]
 zoom = Vector2(2.2, 2.2)
 
+[node name="Buscar" parent="StaticBody2D" unique_id=1416407943 instance=ExtResource("3_tlndw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Buscar" unique_id=982765797]
+position = Vector2(160, 5)
+shape = SubResource("CircleShape2D_lx1j7")
+
 [node name="Cursor" parent="." unique_id=1051558539 instance=ExtResource("3_wibu7")]
-position = Vector2(25, 53)
+position = Vector2(84, 85)

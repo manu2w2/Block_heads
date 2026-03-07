@@ -37,7 +37,6 @@ offset_right = 47.5
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "E to Interact"
 label_settings = SubResource("LabelSettings_1cdhc")
 horizontal_alignment = 1
 vertical_alignment = 1
