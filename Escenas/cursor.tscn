@@ -66,10 +66,4 @@ metadata/_aseprite_wizard_source_file_hash_ = "20b58666950fa01a2dc3d434c71bb857"
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_4d7sh")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=907126720]
-position = Vector2(-7, 4)
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-
-[node name="InteractingComponent" parent="CharacterBody2D" unique_id=966572799 instance=ExtResource("6_r61vb")]
-position = Vector2(0, 3)
+[node name="InteractingComponent" parent="CharacterBody2D" unique_id=970504961 instance=ExtResource("6_r61vb")]

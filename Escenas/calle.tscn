@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cao6bdvr4c7pm" path="res://tiles/escarpa tile.png" id="1_2i28s"]
 [ext_resource type="Texture2D" uid="uid://8tjlhjcx7y3x" path="res://tiles/calle nueva.png" id="2_2i28s"]
 [ext_resource type="Texture2D" uid="uid://1ucqecv8d6ts" path="res://tiles/casas 3.png" id="3_2io2x"]
-[ext_resource type="Script" uid="uid://b2i705c1a5kna" path="res://Escenas/EntrarCasa.gd" id="3_eu6dp"]
+[ext_resource type="Script" uid="uid://b2i705c1a5kna" path="res://Scripts/EntrarCasa.gd" id="3_eu6dp"]
 [ext_resource type="Texture2D" uid="uid://bfaygvmmj3j5i" path="res://Assets/d4l9d1x-ad09fefa-9ea6-4db4-b72f-3bbef618a458.png" id="4_q1cd0"]
 [ext_resource type="PackedScene" uid="uid://dg5jjw2wi3iax" path="res://Escenas/Jugador.tscn" id="6_4en63"]
 [ext_resource type="Texture2D" uid="uid://cbh31dr53tbln" path="res://Assets/Trees_animation.png" id="6_d2gt5"]
 [ext_resource type="Texture2D" uid="uid://bxwuclx8xqkps" path="res://Assets/ground_grass_details.png" id="6_d4hbw"]
-[ext_resource type="PackedScene" path="res://Escenas/interactable.tscn" id="8_mqeai"]
+[ext_resource type="PackedScene" uid="uid://bataee1o4ljjo" path="res://Escenas/interactable.tscn" id="8_mqeai"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of1hf"]
 texture = ExtResource("1_2i28s")

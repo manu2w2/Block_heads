@@ -2,8 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://u8u2hyxwuabo" path="res://Assets/escritorio.png" id="1_mjt88"]
 [ext_resource type="Texture2D" uid="uid://b427g7mxoegri" path="res://Assets/chrome.png" id="2_h4hkh"]
+[ext_resource type="Script" uid="uid://barfck2ar0hyd" path="res://Escenas/Search.gd" id="2_w8vlh"]
 [ext_resource type="Texture2D" uid="uid://bllp25fj8b2qk" path="res://Assets/folder .png" id="3_0oolt"]
+[ext_resource type="PackedScene" uid="uid://bataee1o4ljjo" path="res://Escenas/interactable.tscn" id="4_rm0nj"]
 [ext_resource type="Texture2D" uid="uid://bkxgipt4unpak" path="res://Assets/bitcoin moneda.png" id="4_w8vlh"]
+[ext_resource type="PackedScene" uid="uid://doq5d1fy5dm8h" path="res://Escenas/cursor.tscn" id="7_ahnes"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rm0nj"]
 texture = ExtResource("1_mjt88")
@@ -555,6 +558,9 @@ texture = ExtResource("1_mjt88")
 [sub_resource type="TileSet" id="TileSet_ahnes"]
 sources/0 = SubResource("TileSetAtlasSource_rm0nj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waly0"]
+size = Vector2(59, 59)
+
 [node name="Node2D" type="Node2D" unique_id=2121747208]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=421884643]
@@ -562,22 +568,49 @@ tile_map_data = PackedByteArray("AAAAAO//AAAAAAAAAAAAAPD/AAAAAAEAAAAAAPH/AAAAAAI
 tile_set = SubResource("TileSet_ahnes")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=925700272]
+position = Vector2(33, -242)
+script = ExtResource("2_w8vlh")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=985487117]
-position = Vector2(36, -236)
 scale = Vector2(0.144, 0.144)
 texture = ExtResource("2_h4hkh")
 
+[node name="Navegador" parent="StaticBody2D" unique_id=888491424 instance=ExtResource("4_rm0nj")]
+light_mask = 0
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Navegador" unique_id=1546126275]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_waly0")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1878558303]
+position = Vector2(121, -236)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=2003902896]
-position = Vector2(119, -235.00002)
 scale = Vector2(0.242, 0.242)
 texture = ExtResource("3_0oolt")
 
+[node name="Interactable" parent="StaticBody2D2" unique_id=1308438248 instance=ExtResource("4_rm0nj")]
+
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1850707145]
+position = Vector2(212, -236)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3" unique_id=785882980]
-position = Vector2(199.99998, -232.99998)
 scale = Vector2(0.14759263, 0.14759263)
 texture = ExtResource("4_w8vlh")
+
+[node name="Interactable" parent="StaticBody2D3" unique_id=789592015 instance=ExtResource("4_rm0nj")]
+visible = false
+position = Vector2(0.13465881, -0.08343506)
+
+[node name="Cursor" parent="." unique_id=1051558539 instance=ExtResource("7_ahnes")]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(405, -231)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=966445790]
+position = Vector2(-6, -278)
+anchor_mode = 0
+zoom = Vector2(2.2, 2.3)
