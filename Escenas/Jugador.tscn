@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg5jjw2wi3iax"]
 
 [ext_resource type="Texture2D" uid="uid://c24if7pbwlrnu" path="res://Sprites/Gongorita-Sheet.png" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://cshc6c7pajl1l" path="res://Sprites/character_body_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://cshc6c7pajl1l" path="res://Scripts/character_body_2d.gd" id="1_wtcfe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
 atlas = ExtResource("1_0e48y")
