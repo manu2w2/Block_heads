@@ -99,6 +99,7 @@ text = "Salir"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=909626847]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2092241638]
+visible = false
 layout_mode = 0
 offset_left = 94.0
 offset_top = 54.0
