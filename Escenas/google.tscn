@@ -639,6 +639,7 @@ animation = &"Busqueda"
 zoom = Vector2(2.2, 2.2)
 
 [node name="Buscar" parent="StaticBody2D" unique_id=1416407943 instance=ExtResource("3_tlndw")]
+interact_name = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Buscar" unique_id=982765797]
 position = Vector2(160, 5)
