@@ -3,15 +3,15 @@ extends Control
 # --- Configuración ---
 const API_URL = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
 const INTERVALO_API = 10.0        # cada cuánto pide precio real a la API
-const INTERVALO_SIM = 1.0         # cada cuánto simula un movimiento intermedio
-const MAX_PUNTOS_GRAFICA = 50     # puntos visibles en la gráfica
+const INTERVALO_SIM = 2.0         # cada cuánto simula un movimiento intermedio
+const MAX_PUNTOS_GRAFICA = 60     # puntos visibles en la gráfica
 const USD_INICIAL = 1000.0
 
 # --- Parámetros de simulación ---
 # Qué tan fuerte puede moverse el precio en cada tick simulado (% del precio)
 const VOLATILIDAD = 0.008         # 0.8% por tick → movimientos visibles pero no caóticos
 # Qué tan fuerte "jala" el precio simulado hacia el precio real de la API
-const FUERZA_ANCLA = 0.40         # 15% → se acerca suavemente al real
+const FUERZA_ANCLA = 0.30         # 15% → se acerca suavemente al real
 
 # --- Estado del juego ---
 var precio_actual: float = 0.0
@@ -61,6 +61,30 @@ func _ready():
 	spinbox_comprar.value_changed.connect(_actualizar_total_comprar)
 	spinbox_vender.value_changed.connect(_actualizar_total_vender)
 
+	# Envolver el historial en un ScrollContainer para que no rompa el layout
+	var historial_vbox = $VBoxContainer/HBoxContainer/Historial
+	var scroll = ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	# Reparentar el label al scroll
+	historial_label.get_parent().remove_child(historial_label)
+	scroll.add_child(historial_label)
+	historial_vbox.add_child(scroll)
+	historial_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	historial_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+
+	# Configurar SpinBoxes para fracciones de BTC
+	spinbox_comprar.min_value = 0.0001
+	spinbox_comprar.max_value = 10.0
+	spinbox_comprar.step = 0.0001
+	spinbox_comprar.value = 0.001
+
+	spinbox_vender.min_value = 0.0001
+	spinbox_vender.max_value = 10.0
+	spinbox_vender.step = 0.0001
+	spinbox_vender.value = 0.001
+
 	# Pedir precio real inmediatamente al iniciar
 	_pedir_precio_real()
 	_actualizar_ui_balance()
@@ -77,7 +101,7 @@ func _on_precio_recibido(_result, response_code, _headers, body):
 		print("API error: ", response_code)
 		if precio_ancla == 0.0:
 			# Si falla al inicio, usar precio de fallback
-			precio_ancla = 65000.0
+			precio_ancla = 67000.0
 			precio_actual = precio_ancla
 			precio_anterior = precio_ancla
 			_iniciar_simulacion()
@@ -216,29 +240,32 @@ func _actualizar_ui_precio():
 	label_ganancia2.text = "%s $%.2f" % [simbolo, abs(cambio)]
 
 func _actualizar_ui_balance():
-	label_usd_disp.text = "USD disponible: $%.2f" % usd_disponible
-	label_btc_disp.text = "BTC disponible: %.6f" % btc_disponible
+	label_usd_disp.text = "USD: $%.2f" % usd_disponible
+	label_btc_disp.text = "BTC: %.6f" % btc_disponible
 
 	ganancia_total = (usd_disponible + btc_disponible * precio_actual) - USD_INICIAL
 	var signo = "+" if ganancia_total >= 0 else ""
-	historial_label.text = "Ganancia total: %s$%.2f" % [signo, ganancia_total]
+	# La ganancia va en label_ganancia2 (encabezado de gráfica), NO en historial
+	label_ganancia2.text = "%s$%.2f" % [signo, ganancia_total]
 
 # =============================================
 #  LÓGICA DE COMPRA / VENTA
 # =============================================
 func _comprar():
 	if precio_actual <= 0:
+		_mostrar_error("Esperando precio...")
 		return
 	var cantidad = spinbox_comprar.value
 	if cantidad <= 0:
+		_mostrar_error("Ingresa una cantidad mayor a 0")
 		return
 	var costo = cantidad * precio_actual
 	if costo > usd_disponible:
-		print("No tienes suficientes USD")
+		_mostrar_error("❌ USD insuficiente (necesitas $%.2f)" % costo)
 		return
 	usd_disponible -= costo
 	btc_disponible += cantidad
-	_registrar_transaccion("COMPRA", cantidad, precio_actual)
+	_registrar_transaccion("✅ COMPRA", cantidad, precio_actual)
 	_actualizar_ui_balance()
 
 func _actualizar_total_comprar(valor: float):
@@ -251,22 +278,33 @@ func _actualizar_total_vender(valor: float):
 
 func _vender():
 	if precio_actual <= 0:
+		_mostrar_error("Esperando precio...")
 		return
 	var cantidad = spinbox_vender.value
 	if cantidad <= 0:
+		_mostrar_error("Ingresa una cantidad mayor a 0")
 		return
 	if cantidad > btc_disponible:
-		print("No tienes suficiente BTC")
+		_mostrar_error("❌ BTC insuficiente (tienes %.6f)" % btc_disponible)
 		return
 	btc_disponible -= cantidad
 	usd_disponible += cantidad * precio_actual
-	_registrar_transaccion("VENTA", cantidad, precio_actual)
+	_registrar_transaccion("✅ VENTA", cantidad, precio_actual)
 	_actualizar_ui_balance()
+
+func _mostrar_error(msg: String):
+	var hora = Time.get_time_string_from_system()
+	historial_label.text = "[%s] %s\n" % [hora, msg] + historial_label.text
+	_recortar_historial()
 
 func _registrar_transaccion(tipo: String, cantidad: float, precio: float):
 	var hora = Time.get_time_string_from_system()
-	var linea = "[%s] %s %.4f BTC @ $%.2f\n" % [hora, tipo, cantidad, precio]
+	# Texto corto para no romper el layout
+	var linea = "[%s]\n%s\n%.5f BTC\n$%.2f\n---\n" % [hora, tipo, cantidad, precio]
 	historial_label.text = linea + historial_label.text
+	_recortar_historial()
+
+func _recortar_historial():
 	var lineas = historial_label.text.split("\n")
-	if lineas.size() > 8:
-		historial_label.text = "\n".join(lineas.slice(0, 8))
+	if lineas.size() > 20:
+		historial_label.text = "\n".join(lineas.slice(0, 20))
