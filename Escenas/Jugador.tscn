@@ -248,5 +248,4 @@ position_smoothing_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=566044153]
 stream = ExtResource("7_btktc")
-stream_paused = true
 bus = &"SFX"
