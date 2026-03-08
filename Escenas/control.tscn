@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bhtbwm4oy0wul"]
+
+[node name="Control" type="Control" unique_id=1525961292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1390705879]
+layout_mode = 0
+offset_right = 225.0
+offset_bottom = 106.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=795730123]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Block Heads" type="Label" parent="VBoxContainer" unique_id=447939815]
+layout_mode = 2
+text = "Block Heads"
+
+[node name="play" type="Button" parent="VBoxContainer" unique_id=1190337697]
+layout_mode = 2
+text = "Jugar"
+
+[node name="opciones" type="Button" parent="VBoxContainer" unique_id=852204897]
+layout_mode = 2
+text = "Opciones"
+
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=438787102]
+layout_mode = 2
+text = "Salir"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=909626847]

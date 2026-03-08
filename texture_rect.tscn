@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dw44xhvx63vky"]
+
+[ext_resource type="Script" uid="uid://dsl6n2rk3wh36" path="res://texture_rect.gd" id="1_ohhw7"]
+
+[node name="TextureRect" type="TextureRect" unique_id=805871423]
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_ohhw7")
+
+[node name="Panel" type="Panel" parent="." unique_id=839960027]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
