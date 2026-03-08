@@ -101,7 +101,7 @@ func _on_precio_recibido(_result, response_code, _headers, body):
 		print("API error: ", response_code)
 		if precio_ancla == 0.0:
 			# Si falla al inicio, usar precio de fallback
-			precio_ancla = 65000.0
+			precio_ancla = 67000.0
 			precio_actual = precio_ancla
 			precio_anterior = precio_ancla
 			_iniciar_simulacion()
