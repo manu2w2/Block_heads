@@ -52,10 +52,10 @@ animations = [{
 script = ExtResource("1_534nt")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1545475207]
-offset_left = -312.0
-offset_top = -186.0
-offset_right = 288.0
-offset_bottom = 214.0
+offset_left = -316.0
+offset_top = -197.0
+offset_right = 284.0
+offset_bottom = 203.0
 
 [node name="TextureRect" parent="." unique_id=805871423 instance=ExtResource("1_ksumv")]
 offset_left = -15.0

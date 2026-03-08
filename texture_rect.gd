@@ -1,5 +1,7 @@
 extends TextureRect
- 
+
+@export var color: String = ""
+
 func _get_drag_data(at_position):
 	var preview_texture = TextureRect.new()
  
@@ -11,14 +13,18 @@ func _get_drag_data(at_position):
 	preview.add_child(preview_texture)
  
 	set_drag_preview(preview)
-	texture = null
- 
-	return preview_texture.texture
+
+	return self
  
  
 func _can_drop_data(_pos, data):
-	return data is Texture2D
+	return data is TextureRect
  
  
 func _drop_data(_pos, data):
-	texture = data
+
+	var dado = data as TextureRect
+
+	texture = dado.texture
+
+	get_parent().registrar_color(name, dado.color)
