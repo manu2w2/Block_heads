@@ -219,5 +219,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
 
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Historial" unique_id=728648888]
+layout_mode = 2
+text = "Movimientos:"
+
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Historial" unique_id=1573985530]
 layout_mode = 2
