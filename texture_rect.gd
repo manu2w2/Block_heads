@@ -26,5 +26,3 @@ func _drop_data(_pos, data):
 	var dado = data as TextureRect
 
 	texture = dado.texture
-
-	get_parent().registrar_color(name, dado.color)
