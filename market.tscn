@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://co2qkcu4211ad"]
 
+[ext_resource type="Texture2D" uid="uid://bmwb6q3baks6l" path="res://Assets/line_background.png" id="1_qy6h4"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy6h4"]
 bg_color = Color(0, 0.72156864, 0.5803922, 1)
 corner_radius_top_left = 10
@@ -27,6 +29,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd2tk"]
 
 [node name="Market" type="Control" unique_id=984178844]
 layout_mode = 3
@@ -108,7 +112,7 @@ size_flags_stretch_ratio = 0.4
 layout_mode = 2
 text = "Cantidad BTC:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/cantidadBTC" unique_id=1776151953]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/cantidadBTC" unique_id=1439926488]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -139,9 +143,8 @@ size_flags_stretch_ratio = 0.4
 layout_mode = 2
 text = "Cantidad BTC:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/cantidadBTC" unique_id=1121196662]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/cantidadBTC" unique_id=653919342]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender" unique_id=799317717]
 layout_mode = 2
@@ -178,16 +181,46 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Grafica" unique_id=887408512]
+[node name="btc_usd" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Grafica" unique_id=887408512]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/HBoxContainer" unique_id=353939458]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/btc_usd" unique_id=353939458]
 layout_mode = 2
+text = "BTC/USD"
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/HBoxContainer" unique_id=1925462494]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/btc_usd" unique_id=1925462494]
 layout_mode = 2
+text = "Ganancia Total"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/Grafica" unique_id=585321883]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qd2tk")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=556285093]
+layout_mode = 2
+border_width = 3.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=1079479975]
+modulate = Color(0.45685214, 0.4568522, 0.4568522, 1)
+layout_mode = 2
+texture = ExtResource("1_qy6h4")
+
+[node name="Line2D" type="Line2D" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=1543643028]
+modulate = Color(0.23580807, 0.6049895, 0.3607019, 1)
+z_index = 1
+texture_filter = 1
+position = Vector2(-237, -25)
+scale = Vector2(4.5, 6.211)
+points = PackedVector2Array(224, 97, 191.63708, 89.612816, 199.85312, 31.355007, 175.88206, 28.067856, 151.04326, 60.814285, 143.5675, 47.75357, 122.828316, 34.125, 80.46194, 91.14375, 89.77778, 34.938015)
+width = 1.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Historial" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1602777928]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Historial" unique_id=1573985530]
+layout_mode = 2
