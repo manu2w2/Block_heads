@@ -3186,7 +3186,7 @@ size = Vector2(131, 87)
 radius = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu6dp"]
-size = Vector2(545, 189)
+size = Vector2(545, 208)
 
 [node name="Calle" type="Node2D" unique_id=1480039134]
 
@@ -3242,7 +3242,7 @@ position = Vector2(449.50006, -160.50002)
 shape = SubResource("RectangleShape2D_eu6dp")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Tilemap/casas" unique_id=398610809]
-position = Vector2(449.50006, -160.50002)
+position = Vector2(449.50006, -151.00002)
 shape = SubResource("RectangleShape2D_eu6dp")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tilemap/casas" unique_id=1643229874]
@@ -3256,5 +3256,9 @@ limit_left = 2
 limit_top = -256
 limit_right = 898
 limit_bottom = 160
+
+[node name="AudioStreamPlayer" parent="Jugador/CharacterBody2D" parent_id_path=PackedInt32Array(1051558539, 1244790209) index="4" unique_id=566044153]
+volume_db = 4.0
+stream_paused = false
 
 [editable path="Jugador"]

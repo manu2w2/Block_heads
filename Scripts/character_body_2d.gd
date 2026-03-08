@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 120.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var footsteps: AudioStreamPlayer = $AudioStreamPlayer
 
 func _physics_process(_delta: float) -> void:
 	
@@ -22,18 +23,23 @@ func _physics_process(_delta: float) -> void:
 func _animate(dir: Vector2) -> void:
 	if dir == Vector2.ZERO:
 		anim.play("Idle")
+		footsteps.stop()
 		return
 	
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0.0:
 			anim.play("Izquierda")
 			anim.flip_h = true
+			footsteps.play()
 		else:
 			anim.play("Izquierda")
 			anim.flip_h = false
+			footsteps.play()
 			
 	else:
 		if dir.y > 0.0:
 			anim.play("Abajo")
+			footsteps.play()
 		else:
 			anim.play("Arriba")
+			footsteps.play()

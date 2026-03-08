@@ -23,6 +23,7 @@ driver/enable_input=true
 [autoload]
 
 Balance="*uid://b2bm618rd70pr"
+Music="*uid://i2rv6qoky6nw"
 
 [editor]
 

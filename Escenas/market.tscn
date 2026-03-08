@@ -199,6 +199,10 @@ text = "BTC/USD"
 layout_mode = 2
 text = "Ganancia Total"
 
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/btc_usd" unique_id=403028102]
+layout_mode = 2
+text = "Ganado:"
+
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/Grafica" unique_id=585321883]
 layout_mode = 2
 size_flags_vertical = 3

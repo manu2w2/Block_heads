@@ -5,7 +5,7 @@ const API_URL = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
 const INTERVALO_API = 10.0
 const INTERVALO_SIM = 2.0
 const MAX_PUNTOS_GRAFICA = 60
-const USD_INICIAL = 1000.0
+
 
 # --- Parámetros de simulación ---
 const VOLATILIDAD = 0.006
@@ -227,7 +227,7 @@ func _actualizar_ui_balance():
 	label_usd_disp.text = "USD: $%.2f" % Balance.USD_balance
 	label_btc_disp.text = "BTC: %.6f" % Balance.BTC_balance
 
-	ganancia_total = (Balance.USD_balance + Balance.BTC_balance * precio_actual) - USD_INICIAL
+	ganancia_total = (Balance.USD_balance + Balance.BTC_balance * precio_actual)
 	var signo = "+" if ganancia_total >= 0 else ""
 	label_ganancia2.text = "%s$%.2f" % [signo, ganancia_total]
 

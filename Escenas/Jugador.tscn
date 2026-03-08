@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6tkjgc124ox3" path="res://Sprites/Gongorita-walk-front.png" id="3_fwv5a"]
 [ext_resource type="Texture2D" uid="uid://vgixuucqfi4w" path="res://Sprites/Gongorita_walk.png" id="5_btktc"]
 [ext_resource type="PackedScene" uid="uid://dsnve3xewurnd" path="res://Escenas/interacting_component.tscn" id="6_fwv5a"]
+[ext_resource type="AudioStream" uid="uid://8sdce35dx0f7" path="res://Assets/music/u_3x9ga8wevj-walking-sound-effect-272246.mp3" id="7_btktc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2dh0"]
 atlas = ExtResource("3_fwv5a")
@@ -199,8 +200,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d7sh"]
-radius = 5.0
-height = 20.0
+radius = 4.0
+height = 8.0
 
 [node name="Jugador" type="Node2D" unique_id=1051558539]
 metadata/_edit_vertical_guides_ = [2.0]
@@ -235,6 +236,7 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "20b58666950fa01a2dc3d434c71bb857"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1253644340]
+position = Vector2(-0.5, 8)
 shape = SubResource("CapsuleShape2D_4d7sh")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=907126720]
@@ -243,3 +245,8 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="InteractingComponent" parent="CharacterBody2D" unique_id=970504961 instance=ExtResource("6_fwv5a")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=566044153]
+stream = ExtResource("7_btktc")
+stream_paused = true
+bus = &"SFX"
