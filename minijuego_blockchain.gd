@@ -1,30 +1,23 @@
+# Script para un Node2D que controle la colisión de B1
 extends Node2D
 
-var bloque1 = ""
-var bloque2 = ""
-var bloque3 = ""
+@onready var body_b1 = $B1
+@onready var colision_b1 = $B1/ColisionB1
+@onready var body_rojo = $Rojo
 
-func registrar_color(nombre_bloque, color_dado):
+func _process(delta):
+	var space_state = get_world_2d().direct_space_state
 
-	if nombre_bloque == "Bloque1":
-		bloque1 = "rojo"
-		
-	if nombre_bloque == "Bloque2":
-		bloque2 = color_dado
-		
-	if nombre_bloque == "Bloque3":
-		bloque3 = color_dado
+	# Configuramos la consulta de colisión
+	var query = PhysicsShapeQueryParameters2D.new()
+	query.shape = colision_b1.shape
+	query.transform = body_b1.global_transform
+	query.collide_with_bodies = true
+	query.exclude = [body_b1]  # Excluimos B1
 
-	revisar_orden()
-
-
-func revisar_orden():
-
-	# esperar a que los 3 bloques tengan dado
-	if bloque1 == "" or bloque2 == "" or bloque3 == "":
-		return
-
-	if bloque1 == "ROJO" and bloque2 == "NARANJA" and bloque3 == "VERDE":
-		
-		# AQUÍ CAMBIAS LA ESCENA
-		get_tree().change_scene_to_file("res://EscenaCorrecta.tscn")
+	var results = space_state.intersect_shape(query)
+	for result in results:
+		var collider = result.collider
+		if collider != body_rojo:
+			get_tree().reload_current_scene()
+			break
