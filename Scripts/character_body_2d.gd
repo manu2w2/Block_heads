@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 120.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var footsteps: AudioStreamPlayer = $AudioStreamPlayer
-
+var puede_sonar: bool = true
 func _physics_process(_delta: float) -> void:
 	
 	var dir := Vector2(
@@ -25,6 +25,14 @@ func _animate(dir: Vector2) -> void:
 		anim.play("Idle")
 		footsteps.stop()
 		return
+	
+	if puede_sonar:
+		footsteps.play()
+		puede_sonar = false
+		# Espera 0.35 segundos antes del siguiente paso
+		await get_tree().create_timer(1).timeout
+		puede_sonar = true
+	
 	
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0.0:
