@@ -30,6 +30,9 @@ func _drop_data(_pos, data):
 		# Drop correcto: replicamos la textura
 		drop_target.texture = texture
 		
+		
 	# Siempre volver a posición original
 	position = original_position
+	
+	
 	

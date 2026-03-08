@@ -47,6 +47,11 @@ func _ready() -> void:
 	await timer.timeout
 	Flecha2.visible = true
 	Cadena.visible = true
+	# Iniciar el Timer
+	timer.start()
+	# Esperar a que el Timer haga timeout
+	await timer.timeout
+	get_tree().change_scene_to_file("res://Escenas/Estafas.tscn")
 	
 
 
