@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://co2qkcu4211ad"]
 
+[ext_resource type="Script" uid="uid://wd672hdx5u2w" path="res://market.gd" id="1_n5ih4"]
 [ext_resource type="Texture2D" uid="uid://bmwb6q3baks6l" path="res://Assets/line_background.png" id="1_qy6h4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy6h4"]
@@ -39,6 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n5ih4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=419737176]
 layout_mode = 1
@@ -207,15 +209,10 @@ layout_mode = 2
 texture = ExtResource("1_qy6h4")
 
 [node name="Line2D" type="Line2D" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=1543643028]
-modulate = Color(0.23580807, 0.6049895, 0.3607019, 1)
 z_index = 1
 texture_filter = 1
-position = Vector2(-237, -25)
-scale = Vector2(4.5, 6.211)
-points = PackedVector2Array(224, 97, 191.63708, 89.612816, 199.85312, 31.355007, 175.88206, 28.067856, 151.04326, 60.814285, 143.5675, 47.75357, 122.828316, 34.125, 80.46194, 91.14375, 89.77778, 34.938015)
 width = 1.0
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="Historial" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1602777928]
 layout_mode = 2
