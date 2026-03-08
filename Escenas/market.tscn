@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co2qkcu4211ad"]
 
-[ext_resource type="Script" uid="uid://wd672hdx5u2w" path="res://market.gd" id="1_n5ih4"]
-[ext_resource type="Texture2D" uid="uid://bmwb6q3baks6l" path="res://Assets/line_background.png" id="1_qy6h4"]
+[ext_resource type="Script" uid="uid://wd672hdx5u2w" path="res://market.gd" id="1_2k2no"]
+[ext_resource type="Texture2D" uid="uid://bmwb6q3baks6l" path="res://Assets/line_background.png" id="2_8y8i1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy6h4"]
 bg_color = Color(0, 0.72156864, 0.5803922, 1)
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n5ih4")
+script = ExtResource("1_2k2no")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=419737176]
 layout_mode = 1
@@ -206,7 +206,7 @@ border_width = 3.0
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=1079479975]
 modulate = Color(0.45685214, 0.4568522, 0.4568522, 1)
 layout_mode = 2
-texture = ExtResource("1_qy6h4")
+texture = ExtResource("2_8y8i1")
 
 [node name="Line2D" type="Line2D" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=1543643028]
 z_index = 1

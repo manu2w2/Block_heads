@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 buses/default_bus_layout="uid://ccsdgpp3at5dl"
 driver/enable_input=true
 
+[autoload]
+
+Balance="*uid://b2bm618rd70pr"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
