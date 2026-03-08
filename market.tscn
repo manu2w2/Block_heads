@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://co2qkcu4211ad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy6h4"]
+bg_color = Color(0, 0.72156864, 0.5803922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5ih4"]
+bg_color = Color(4.1392445e-06, 0.51139027, 0.4084233, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw60i"]
+bg_color = Color(0.8392157, 0.1882353, 0.19215687, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtoqr"]
+bg_color = Color(0.61184144, 0.11282051, 0.120614566, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Market" type="Control" unique_id=984178844]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=419737176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18039216, 0.18039216, 0.27058825, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1458741514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1818391270]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Nombre del market" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1895984870]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Block-heads exchange"
+
+[node name="PrecioBit" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1698730127]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Precio    BITCOIN:"
+
+[node name="Hora y fecha" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1664503443]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fecha y hora"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=263850430]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="ComprarVender" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=713918124]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender" unique_id=1731502313]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "Comprar"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/ComprarVender" unique_id=680619015]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Comprar" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer" unique_id=315112551]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="cantidadBTC" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar" unique_id=1001831356]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/cantidadBTC" unique_id=74034436]
+layout_mode = 2
+text = "Cantidad BTC:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/cantidadBTC" unique_id=1776151953]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar" unique_id=739567741]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+text = "Total en USD:"
+
+[node name="BtnComprar" type="Button" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar" unique_id=25292064]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_qy6h4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n5ih4")
+text = "Comprar"
+
+[node name="Vender" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer" unique_id=1059970348]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="cantidadBTC" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender" unique_id=513073419]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/cantidadBTC" unique_id=1507085448]
+layout_mode = 2
+text = "Cantidad BTC:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/cantidadBTC" unique_id=1121196662]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender" unique_id=799317717]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+text = "Total en USD:"
+
+[node name="BtnVender" type="Button" parent="VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender" unique_id=2003733411]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_bw60i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xtoqr")
+text = "Vender"
+
+[node name="balance" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ComprarVender" unique_id=682690292]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 1
+
+[node name="USD" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/balance" unique_id=113261741]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
+text = "USD disponible:"
+
+[node name="BTC" type="Label" parent="VBoxContainer/HBoxContainer/ComprarVender/balance" unique_id=1974480423]
+layout_mode = 2
+size_flags_vertical = 1
+text = "BTC disponible:"
+
+[node name="Grafica" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1698844616]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Grafica" unique_id=887408512]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/HBoxContainer" unique_id=353939458]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Grafica/HBoxContainer" unique_id=1925462494]
+layout_mode = 2
+
+[node name="Historial" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1602777928]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
