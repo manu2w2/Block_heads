@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://di1q3sm1wb2ya"]
+
+[ext_resource type="Texture2D" uid="uid://cvdqe1cqf2aim" path="res://Assets/Scam_background.png" id="1_3b7w2"]
+[ext_resource type="Texture2D" uid="uid://b7bpnly1l6c2u" path="res://Assets/scam.png" id="3_fiycd"]
+[ext_resource type="Script" uid="uid://bxyhrjoiwxg0e" path="res://Escenas/static_body_2d.gd" id="4_fiycd"]
+[ext_resource type="Texture2D" uid="uid://du787uydku4a1" path="res://Assets/scam1.png" id="4_fl4ml"]
+[ext_resource type="Texture2D" uid="uid://cctlqfgp8dueb" path="res://Assets/fowenoiwrmk.png" id="6_fl4ml"]
+[ext_resource type="Texture2D" uid="uid://d2l6hnvsin62i" path="res://Assets/Sprite-0005.png" id="6_oqmdo"]
+[ext_resource type="Script" uid="uid://dhf41pun88811" path="res://Escenas/static_body_2d_2.gd" id="7_oqmdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmdo"]
+size = Vector2(301.5, 266)
+
+[node name="Node2D" type="Node2D" unique_id=1820789862]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1238662041]
+
+[node name="ScamBackground" type="Sprite2D" parent="CanvasLayer" unique_id=1183285849]
+position = Vector2(576.25, 324.50003)
+scale = Vector2(1.0309417, 1.1355635)
+texture = ExtResource("1_3b7w2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer" unique_id=1629616511]
+collision_layer = 65295
+collision_mask = 61199
+input_pickable = true
+script = ExtResource("4_fiycd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D" unique_id=200569976]
+position = Vector2(157, 505)
+shape = SubResource("RectangleShape2D_oqmdo")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="CanvasLayer/StaticBody2D" unique_id=717323887]
+
+[node name="Good" type="Sprite2D" parent="CanvasLayer/StaticBody2D/StaticBody2D3" unique_id=1974134343]
+visible = false
+position = Vector2(577, 521)
+scale = Vector2(0.60249996, 0.6212501)
+texture = ExtResource("6_oqmdo")
+
+[node name="bAD" type="Sprite2D" parent="CanvasLayer/StaticBody2D/StaticBody2D3" unique_id=1870006513]
+visible = false
+position = Vector2(582, 506.00003)
+scale = Vector2(0.5894446, 0.668125)
+texture = ExtResource("6_fl4ml")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="CanvasLayer" unique_id=348944934]
+input_pickable = true
+script = ExtResource("7_oqmdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D2" unique_id=425819032]
+position = Vector2(1001, 513)
+shape = SubResource("RectangleShape2D_oqmdo")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="CanvasLayer/StaticBody2D2" unique_id=236569365]
+
+[node name="Good" type="Sprite2D" parent="CanvasLayer/StaticBody2D2/StaticBody2D4" unique_id=2006455564]
+visible = false
+position = Vector2(577, 521)
+scale = Vector2(0.60249996, 0.6212501)
+texture = ExtResource("6_oqmdo")
+
+[node name="bAD" type="Sprite2D" parent="CanvasLayer/StaticBody2D2/StaticBody2D4" unique_id=604603580]
+visible = false
+position = Vector2(582, 506.00003)
+scale = Vector2(0.5894446, 0.668125)
+texture = ExtResource("6_fl4ml")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/StaticBody2D2/StaticBody2D4" unique_id=993511977]
+position = Vector2(576.99994, 188.99998)
+scale = Vector2(0.77666664, 0.7025)
+texture = ExtResource("3_fiycd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/StaticBody2D2/StaticBody2D4" unique_id=67934416]
+position = Vector2(579.50006, 193.00002)
+scale = Vector2(0.77888894, 0.725)
+texture = ExtResource("4_fl4ml")
