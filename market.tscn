@@ -211,7 +211,7 @@ texture = ExtResource("1_qy6h4")
 [node name="Line2D" type="Line2D" parent="VBoxContainer/HBoxContainer/Grafica/PanelContainer" unique_id=1543643028]
 z_index = 1
 texture_filter = 1
-width = 1.0
+width = 3.0
 metadata/_edit_group_ = true
 
 [node name="Historial" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1602777928]

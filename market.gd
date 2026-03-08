@@ -3,15 +3,15 @@ extends Control
 # --- Configuración ---
 const API_URL = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
 const INTERVALO_API = 10.0        # cada cuánto pide precio real a la API
-const INTERVALO_SIM = 1         # cada cuánto simula un movimiento intermedio
-const MAX_PUNTOS_GRAFICA = 200     # puntos visibles en la gráfica
+const INTERVALO_SIM = 1.0         # cada cuánto simula un movimiento intermedio
+const MAX_PUNTOS_GRAFICA = 50     # puntos visibles en la gráfica
 const USD_INICIAL = 1000.0
 
 # --- Parámetros de simulación ---
 # Qué tan fuerte puede moverse el precio en cada tick simulado (% del precio)
 const VOLATILIDAD = 0.008         # 0.8% por tick → movimientos visibles pero no caóticos
 # Qué tan fuerte "jala" el precio simulado hacia el precio real de la API
-const FUERZA_ANCLA = 0.50         # 15% → se acerca suavemente al real
+const FUERZA_ANCLA = 0.40         # 15% → se acerca suavemente al real
 
 # --- Estado del juego ---
 var precio_actual: float = 0.0
@@ -33,6 +33,9 @@ var ganancia_total: float = 0.0
 @onready var historial_label = $VBoxContainer/HBoxContainer/Historial/Label
 @onready var label_usd_disp = $VBoxContainer/HBoxContainer/ComprarVender/balance/USD
 @onready var label_btc_disp = $VBoxContainer/HBoxContainer/ComprarVender/balance/BTC
+@onready var label_total_comprar = $VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/Label2
+@onready var label_total_vender = $VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/Label2
+@onready var spinbox_vender = $VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/cantidadBTC/SpinBox
 @onready var http_request = HTTPRequest.new()
 @onready var timer_api = Timer.new()
 @onready var timer_sim = Timer.new()
@@ -55,6 +58,8 @@ func _ready():
 
 	$VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/BtnComprar.pressed.connect(_comprar)
 	$VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/BtnVender.pressed.connect(_vender)
+	spinbox_comprar.value_changed.connect(_actualizar_total_comprar)
+	spinbox_vender.value_changed.connect(_actualizar_total_vender)
 
 	# Pedir precio real inmediatamente al iniciar
 	_pedir_precio_real()
@@ -147,21 +152,57 @@ func _actualizar_grafica():
 	if rango < 1.0:
 		rango = 1.0
 
-	var puntos: PackedVector2Array = []
+	# Convertir historial a puntos en pantalla
+	var puntos_base: Array = []
 	for i in range(historial_precios.size()):
 		var t = float(i) / float(historial_precios.size() - 1)
 		var x = margen + t * (ancho - margen * 2.0)
 		var norm_y = (historial_precios[i] - precio_min) / rango
 		var y = (alto - margen) - norm_y * (alto - margen * 2.0)
-		puntos.append(Vector2(x, y))
+		puntos_base.append(Vector2(x, y))
 
-	line2d.points = puntos
+	# Suavizar con Catmull-Rom
+	line2d.points = _catmull_rom(puntos_base, 2)
 	line2d.width = 2.0
+	line2d.joint_mode = Line2D.LINE_JOINT_ROUND
+	line2d.begin_cap_mode = Line2D.LINE_CAP_ROUND
+	line2d.end_cap_mode = Line2D.LINE_CAP_ROUND
 
 	if historial_precios[-1] >= historial_precios[-2]:
 		line2d.default_color = Color(0.0, 1.0, 0.4)  # verde
 	else:
 		line2d.default_color = Color(1.0, 0.3, 0.3)  # rojo
+
+# Catmull-Rom spline: suaviza una lista de Vector2
+# subdivisiones = cuántos puntos intermedios entre cada par (más = más suave)
+func _catmull_rom(puntos: Array, subdivisiones: int) -> PackedVector2Array:
+	var resultado: PackedVector2Array = []
+	var n = puntos.size()
+	if n < 2:
+		return resultado
+
+	for i in range(n - 1):
+		var p0 = puntos[max(i - 1, 0)]
+		var p1 = puntos[i]
+		var p2 = puntos[min(i + 1, n - 1)]
+		var p3 = puntos[min(i + 2, n - 1)]
+
+		for j in range(subdivisiones):
+			var t = float(j) / float(subdivisiones)
+			var t2 = t * t
+			var t3 = t2 * t
+
+			# Fórmula Catmull-Rom
+			var punto = 0.5 * (
+				(2.0 * p1) +
+				(-p0 + p2) * t +
+				(2.0 * p0 - 5.0 * p1 + 4.0 * p2 - p3) * t2 +
+				(-p0 + 3.0 * p1 - 3.0 * p2 + p3) * t3
+			)
+			resultado.append(punto)
+
+	resultado.append(puntos[-1])
+	return resultado
 
 # =============================================
 #  ACTUALIZAR UI
@@ -200,10 +241,17 @@ func _comprar():
 	_registrar_transaccion("COMPRA", cantidad, precio_actual)
 	_actualizar_ui_balance()
 
+func _actualizar_total_comprar(valor: float):
+	var total = valor * precio_actual
+	label_total_comprar.text = "Total en USD: $%.2f" % total
+
+func _actualizar_total_vender(valor: float):
+	var total = valor * precio_actual
+	label_total_vender.text = "Recibes USD: $%.2f" % total
+
 func _vender():
 	if precio_actual <= 0:
 		return
-	var spinbox_vender = $VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/cantidadBTC/SpinBox
 	var cantidad = spinbox_vender.value
 	if cantidad <= 0:
 		return
