@@ -88,3 +88,6 @@ position = Vector2(73, 1)
 sprite_frames = SubResource("SpriteFrames_3bekh")
 frame = 2
 frame_progress = 0.64391035
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1140207634]
+zoom = Vector2(2.2, 2.2)

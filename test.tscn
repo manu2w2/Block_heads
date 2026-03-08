@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dudgxsr14g25s"]
+
+[ext_resource type="PackedScene" uid="uid://ca8d103y0s7yx" path="res://texture_rect.tscn" id="1_8uh7m"]
+[ext_resource type="Texture2D" uid="uid://b884s2qpo7kbv" path="res://Assets/bloque 2.png" id="2_6uqi0"]
+
+[node name="test" type="Node2D" unique_id=1436936037]
+
+[node name="TextureRect" parent="." unique_id=805871423 instance=ExtResource("1_8uh7m")]
+offset_left = -15.0
+offset_top = -33.0
+offset_right = 49.0
+offset_bottom = 31.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" parent="." unique_id=1858106282 instance=ExtResource("1_8uh7m")]
+offset_left = -152.0
+offset_top = -34.0
+offset_right = -88.0
+offset_bottom = 30.0
+
+[node name="TextureRect7" parent="." unique_id=1843393939 instance=ExtResource("1_8uh7m")]
+offset_left = 125.0
+offset_top = -32.0
+offset_right = 189.0
+offset_bottom = 32.0
+
+[node name="TextureRect2" parent="." unique_id=2061141028 instance=ExtResource("1_8uh7m")]
+offset_left = -195.0
+offset_top = 85.0
+offset_right = -131.0
+offset_bottom = 149.0
+texture = ExtResource("2_6uqi0")
+stretch_mode = 1
+
+[node name="TextureRect3" parent="." unique_id=1951172632 instance=ExtResource("1_8uh7m")]
+offset_left = -31.0
+offset_top = 90.0
+offset_right = 33.0
+offset_bottom = 154.0
+texture = ExtResource("2_6uqi0")
+stretch_mode = 1
+
+[node name="TextureRect4" parent="." unique_id=1562030828 instance=ExtResource("1_8uh7m")]
+offset_left = 129.0
+offset_top = 84.0
+offset_right = 193.0
+offset_bottom = 148.0
+texture = ExtResource("2_6uqi0")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1124358103]
+zoom = Vector2(2.2, 2.2)
