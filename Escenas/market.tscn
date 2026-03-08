@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://co2qkcu4211ad"]
 
-[ext_resource type="Script" uid="uid://wd672hdx5u2w" path="res://market.gd" id="1_2k2no"]
+[ext_resource type="Script" uid="uid://wd672hdx5u2w" path="res://Scripts/market.gd" id="1_2k2no"]
 [ext_resource type="Texture2D" uid="uid://bmwb6q3baks6l" path="res://Assets/line_background.png" id="2_8y8i1"]
+[ext_resource type="PackedScene" uid="uid://doq5d1fy5dm8h" path="res://Escenas/cursor.tscn" id="3_8y8i1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy6h4"]
 bg_color = Color(0, 0.72156864, 0.5803922, 1)
@@ -78,6 +79,10 @@ text = "Precio    BITCOIN:"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Fecha y hora"
+
+[node name="Salir" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=510646157]
+layout_mode = 2
+text = "             Salir             "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=263850430]
 layout_mode = 2
@@ -225,3 +230,10 @@ text = "Movimientos:"
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Historial" unique_id=1573985530]
 layout_mode = 2
+
+[node name="Cursor" parent="." unique_id=1051558539 instance=ExtResource("3_8y8i1")]
+z_index = 3
+position = Vector2(396, 257)
+scale = Vector2(2.5, 2.5)
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Salir" to="." method="_on_salir_pressed"]

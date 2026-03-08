@@ -1,25 +1,21 @@
 extends Control
 
 # --- Configuración ---
-const API_URL = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
-const INTERVALO_API = 10.0        # cada cuánto pide precio real a la API
-const INTERVALO_SIM = 2.0         # cada cuánto simula un movimiento intermedio
-const MAX_PUNTOS_GRAFICA = 60     # puntos visibles en la gráfica
+const API_URL = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+const INTERVALO_API = 10.0
+const INTERVALO_SIM = 2.0
+const MAX_PUNTOS_GRAFICA = 60
 const USD_INICIAL = 1000.0
 
 # --- Parámetros de simulación ---
-# Qué tan fuerte puede moverse el precio en cada tick simulado (% del precio)
-const VOLATILIDAD = 0.008         # 0.8% por tick → movimientos visibles pero no caóticos
-# Qué tan fuerte "jala" el precio simulado hacia el precio real de la API
-const FUERZA_ANCLA = 0.30         # 15% → se acerca suavemente al real
+const VOLATILIDAD = 0.006
+const FUERZA_ANCLA = 0.50
 
 # --- Estado del juego ---
 var precio_actual: float = 0.0
 var precio_anterior: float = 0.0
-var precio_ancla: float = 0.0     # último precio real de la API
+var precio_ancla: float = 0.0
 var historial_precios: Array = []
-var usd_disponible: float = USD_INICIAL
-var btc_disponible: float = 0.0
 var ganancia_total: float = 0.0
 
 # --- Referencias a nodos ---
@@ -44,30 +40,26 @@ func _ready():
 	add_child(http_request)
 	http_request.request_completed.connect(_on_precio_recibido)
 
-	# Timer para llamar la API cada 60s
 	add_child(timer_api)
 	timer_api.wait_time = INTERVALO_API
 	timer_api.timeout.connect(_pedir_precio_real)
 	timer_api.start()
 
-	# Timer para simular movimientos cada 3s
 	add_child(timer_sim)
 	timer_sim.wait_time = INTERVALO_SIM
 	timer_sim.timeout.connect(_tick_simulacion)
-	# No iniciar hasta tener precio base
 
 	$VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Comprar/BtnComprar.pressed.connect(_comprar)
 	$VBoxContainer/HBoxContainer/ComprarVender/TabContainer/Vender/BtnVender.pressed.connect(_vender)
 	spinbox_comprar.value_changed.connect(_actualizar_total_comprar)
 	spinbox_vender.value_changed.connect(_actualizar_total_vender)
 
-	# Envolver el historial en un ScrollContainer para que no rompa el layout
+	# Envolver el historial en un ScrollContainer
 	var historial_vbox = $VBoxContainer/HBoxContainer/Historial
 	var scroll = ScrollContainer.new()
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	# Reparentar el label al scroll
 	historial_label.get_parent().remove_child(historial_label)
 	scroll.add_child(historial_label)
 	historial_vbox.add_child(scroll)
@@ -85,22 +77,23 @@ func _ready():
 	spinbox_vender.step = 0.0001
 	spinbox_vender.value = 0.001
 
-	# Pedir precio real inmediatamente al iniciar
 	_pedir_precio_real()
 	_actualizar_ui_balance()
 
 # =============================================
-#  API: PRECIO REAL CADA 60 SEGUNDOS
+#  API: PRECIO REAL
 # =============================================
 func _pedir_precio_real():
 	label_hora.text = Time.get_datetime_string_from_system()
 	http_request.request(API_URL)
 
+func _on_salir_pressed() -> void:
+	get_tree().change_scene_to_file("res://Escenas/escritorio.tscn")
+
 func _on_precio_recibido(_result, response_code, _headers, body):
 	if response_code != 200:
 		print("API error: ", response_code)
 		if precio_ancla == 0.0:
-			# Si falla al inicio, usar precio de fallback
 			precio_ancla = 67000.0
 			precio_actual = precio_ancla
 			precio_anterior = precio_ancla
@@ -111,10 +104,9 @@ func _on_precio_recibido(_result, response_code, _headers, body):
 	if json.parse(body.get_string_from_utf8()) != OK:
 		return
 
-	var nuevo_precio_real = float(json.get_data()["data"]["amount"])
+	var nuevo_precio_real = float(json.get_data()["price"])
 	precio_ancla = nuevo_precio_real
 
-	# Primera vez: inicializar todo
 	if precio_actual == 0.0:
 		precio_actual = precio_ancla
 		precio_anterior = precio_ancla
@@ -127,7 +119,7 @@ func _iniciar_simulacion():
 	timer_sim.start()
 
 # =============================================
-#  SIMULACIÓN: TICK CADA 3 SEGUNDOS
+#  SIMULACIÓN
 # =============================================
 func _tick_simulacion():
 	if precio_actual == 0.0 or precio_ancla == 0.0:
@@ -136,14 +128,10 @@ func _tick_simulacion():
 	label_hora.text = Time.get_datetime_string_from_system()
 	precio_anterior = precio_actual
 
-	# 1. Ruido aleatorio (volatilidad)
 	var ruido = randf_range(-VOLATILIDAD, VOLATILIDAD) * precio_actual
-
-	# 2. Fuerza que jala hacia el precio real (ancla)
 	var diferencia = precio_ancla - precio_actual
 	var ancla = diferencia * FUERZA_ANCLA
 
-	# 3. Precio nuevo = actual + ruido + fuerza ancla
 	precio_actual = precio_actual + ruido + ancla
 	precio_actual = max(precio_actual, 1000.0)
 
@@ -155,7 +143,7 @@ func _tick_simulacion():
 	_actualizar_ui_precio()
 
 # =============================================
-#  DIBUJAR GRÁFICA EN LINE2D
+#  GRÁFICA
 # =============================================
 func _actualizar_grafica():
 	if historial_precios.size() < 2:
@@ -176,7 +164,6 @@ func _actualizar_grafica():
 	if rango < 1.0:
 		rango = 1.0
 
-	# Convertir historial a puntos en pantalla
 	var puntos_base: Array = []
 	for i in range(historial_precios.size()):
 		var t = float(i) / float(historial_precios.size() - 1)
@@ -185,7 +172,6 @@ func _actualizar_grafica():
 		var y = (alto - margen) - norm_y * (alto - margen * 2.0)
 		puntos_base.append(Vector2(x, y))
 
-	# Suavizar con Catmull-Rom
 	line2d.points = _catmull_rom(puntos_base, 2)
 	line2d.width = 2.0
 	line2d.joint_mode = Line2D.LINE_JOINT_ROUND
@@ -193,12 +179,10 @@ func _actualizar_grafica():
 	line2d.end_cap_mode = Line2D.LINE_CAP_ROUND
 
 	if historial_precios[-1] >= historial_precios[-2]:
-		line2d.default_color = Color(0.0, 1.0, 0.4)  # verde
+		line2d.default_color = Color(0.0, 1.0, 0.4)
 	else:
-		line2d.default_color = Color(1.0, 0.3, 0.3)  # rojo
+		line2d.default_color = Color(1.0, 0.3, 0.3)
 
-# Catmull-Rom spline: suaviza una lista de Vector2
-# subdivisiones = cuántos puntos intermedios entre cada par (más = más suave)
 func _catmull_rom(puntos: Array, subdivisiones: int) -> PackedVector2Array:
 	var resultado: PackedVector2Array = []
 	var n = puntos.size()
@@ -216,7 +200,6 @@ func _catmull_rom(puntos: Array, subdivisiones: int) -> PackedVector2Array:
 			var t2 = t * t
 			var t3 = t2 * t
 
-			# Fórmula Catmull-Rom
 			var punto = 0.5 * (
 				(2.0 * p1) +
 				(-p0 + p2) * t +
@@ -240,16 +223,16 @@ func _actualizar_ui_precio():
 	label_ganancia2.text = "%s $%.2f" % [simbolo, abs(cambio)]
 
 func _actualizar_ui_balance():
-	label_usd_disp.text = "USD: $%.2f" % usd_disponible
-	label_btc_disp.text = "BTC: %.6f" % btc_disponible
+	# Lee directamente del Global
+	label_usd_disp.text = "USD: $%.2f" % Balance.USD_balance
+	label_btc_disp.text = "BTC: %.6f" % Balance.BTC_balance
 
-	ganancia_total = (usd_disponible + btc_disponible * precio_actual) - USD_INICIAL
+	ganancia_total = (Balance.USD_balance + Balance.BTC_balance * precio_actual) - USD_INICIAL
 	var signo = "+" if ganancia_total >= 0 else ""
-	# La ganancia va en label_ganancia2 (encabezado de gráfica), NO en historial
 	label_ganancia2.text = "%s$%.2f" % [signo, ganancia_total]
 
 # =============================================
-#  LÓGICA DE COMPRA / VENTA
+#  COMPRA / VENTA
 # =============================================
 func _comprar():
 	if precio_actual <= 0:
@@ -260,21 +243,19 @@ func _comprar():
 		_mostrar_error("Ingresa una cantidad mayor a 0")
 		return
 	var costo = cantidad * precio_actual
-	if costo > usd_disponible:
+	if costo > Balance.USD_balance:
 		_mostrar_error("❌ USD insuficiente (necesitas $%.2f)" % costo)
 		return
-	usd_disponible -= costo
-	btc_disponible += cantidad
+	Balance.USD_balance -= costo
+	Balance.BTC_balance += cantidad
 	_registrar_transaccion("✅ COMPRA", cantidad, precio_actual)
 	_actualizar_ui_balance()
 
 func _actualizar_total_comprar(valor: float):
-	var total = valor * precio_actual
-	label_total_comprar.text = "Total en USD: $%.2f" % total
+	label_total_comprar.text = "Total en USD: $%.2f" % (valor * precio_actual)
 
 func _actualizar_total_vender(valor: float):
-	var total = valor * precio_actual
-	label_total_vender.text = "Recibes USD: $%.2f" % total
+	label_total_vender.text = "Recibes USD: $%.2f" % (valor * precio_actual)
 
 func _vender():
 	if precio_actual <= 0:
@@ -284,11 +265,11 @@ func _vender():
 	if cantidad <= 0:
 		_mostrar_error("Ingresa una cantidad mayor a 0")
 		return
-	if cantidad > btc_disponible:
-		_mostrar_error("❌ BTC insuficiente (tienes %.6f)" % btc_disponible)
+	if cantidad > Balance.BTC_balance:
+		_mostrar_error("❌ BTC insuficiente (tienes %.6f)" % Balance.BTC_balance)
 		return
-	btc_disponible -= cantidad
-	usd_disponible += cantidad * precio_actual
+	Balance.BTC_balance -= cantidad
+	Balance.USD_balance += cantidad * precio_actual
 	_registrar_transaccion("✅ VENTA", cantidad, precio_actual)
 	_actualizar_ui_balance()
 
@@ -299,7 +280,6 @@ func _mostrar_error(msg: String):
 
 func _registrar_transaccion(tipo: String, cantidad: float, precio: float):
 	var hora = Time.get_time_string_from_system()
-	# Texto corto para no romper el layout
 	var linea = "[%s]\n%s\n%.5f BTC\n$%.2f\n---\n" % [hora, tipo, cantidad, precio]
 	historial_label.text = linea + historial_label.text
 	_recortar_historial()

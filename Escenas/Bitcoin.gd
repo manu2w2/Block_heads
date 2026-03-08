@@ -10,4 +10,4 @@ func _on_interact():
 	anim.play("Busqueda")  # nombre de tu animación
 
 func _on_animation_finished():
-	get_tree().change_scene_to_file("res://market.tscn")
+	get_tree().change_scene_to_file("res://Escenas/market.tscn")

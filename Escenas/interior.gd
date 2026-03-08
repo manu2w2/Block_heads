@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var camara_jugador = $Jugador/Camera2D
 @onready var camara_escena = $Camera2D
 
 
