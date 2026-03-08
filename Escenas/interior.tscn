@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://djwkgctpxdjs0"]
+[gd_scene format=4 uid="uid://rk2qgo5fiqxh"]
 
 [ext_resource type="Texture2D" uid="uid://u2d582lck7y7" path="res://Assets/walls_floor.png" id="1_um40w"]
 [ext_resource type="PackedScene" uid="uid://dg5jjw2wi3iax" path="res://Escenas/Jugador.tscn" id="2_mra4r"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mxs6h3n056w2" path="res://Assets/Sprite-0004.png" id="5_sl63h"]
 [ext_resource type="Texture2D" uid="uid://duaav0k1xknrl" path="res://Assets/Sprite-0003.png" id="6_emfca"]
 [ext_resource type="Texture2D" uid="uid://dadv1a80c844v" path="res://Assets/officetiles.png" id="6_sl63h"]
-[ext_resource type="Script" uid="uid://kv4h0mdrxsdw" path="res://Escenas/static_body_2d_16.gd" id="7_rit2b"]
+[ext_resource type="Script" uid="uid://dfoobm34luwdh" path="res://Escenas/static_body_2d_16.gd" id="7_rit2b"]
 [ext_resource type="PackedScene" uid="uid://bataee1o4ljjo" path="res://Escenas/interactable.tscn" id="8_tp44w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2gnvx"]
@@ -419,7 +419,6 @@ texture = ExtResource("6_sl63h")
 8:0/0 = 0
 9:0/0 = 0
 10:0/0 = 0
-1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -429,76 +428,28 @@ texture = ExtResource("6_sl63h")
 8:1/0 = 0
 9:1/0 = 0
 10:1/0 = 0
-0:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
 7:2/0 = 0
 8:2/0 = 0
 9:2/0 = 0
 10:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
 7:3/0 = 0
 8:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
 7:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
 10:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 10:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
 9:6/0 = 0
 10:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
 7:7/0 = 0
 8:7/0 = 0
 9:7/0 = 0
 10:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
@@ -508,7 +459,6 @@ texture = ExtResource("6_sl63h")
 2:9/0 = 0
 3:9/0 = 0
 4:9/0 = 0
-5:9/0 = 0
 6:9/0 = 0
 8:9/0 = 0
 9:9/0 = 0
@@ -559,6 +509,56 @@ texture = ExtResource("6_sl63h")
 7:14/0 = 0
 8:14/0 = 0
 9:14/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+1:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+5:5/0 = 0
+5:9/0 = 0
+6:7/0 = 0
+6:8/0 = 0
+3:4/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+3:5/0 = 0
+3:6/0 = 0
+4:3/0 = 0
+4:5/0 = 0
+4:6/0 = 0
+4:7/0 = 0
+5:6/0 = 0
+5:7/0 = 0
+6:4/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:3/0 = 0
+1:6/0 = 0
+2:5/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+2:6/0 = 0
+3:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+2:2/0 = 0
+0:2/0 = 0
+1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_rit2b"]
 sources/0 = SubResource("TileSetAtlasSource_emfca")

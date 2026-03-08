@@ -7,7 +7,7 @@ extends Control
 @onready var fullscreen_btn: CheckButton = $PanelContainer/VBoxContainer/FullScreen
 
 func _ready() -> void:
-	
+	music.play()
 	
 	options_panel.hide()
 	music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
