@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bexl3j3fs2fiw"]
 
 [ext_resource type="Texture2D" uid="uid://ceo82icqiq3j4" path="res://Assets/animacion blockchain.png" id="1_ess8a"]
+[ext_resource type="Script" uid="uid://b86tpmhof13lv" path="res://introbloques.gd" id="2_7xtdm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xtdm"]
 atlas = ExtResource("1_ess8a")
@@ -102,3 +103,8 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_c54tw")
 frame = 4
 frame_progress = 0.42269126
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1685192700]
+position = Vector2(-1, 0)
+zoom = Vector2(2.2, 2.2)
+script = ExtResource("2_7xtdm")

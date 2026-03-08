@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://clpchu3aarsm6"]
 
 [ext_resource type="PackedScene" uid="uid://dw44xhvx63vky" path="res://texture_rect.tscn" id="1_csrrm"]
+[ext_resource type="Script" uid="uid://dg7robg28v1it" path="res://ExplicacionBlock.gd" id="1_jwfyw"]
 [ext_resource type="Texture2D" uid="uid://b884s2qpo7kbv" path="res://Assets/bloque 2.png" id="2_2qofl"]
 [ext_resource type="Texture2D" uid="uid://btylju8wpprla" path="res://Assets/bloque 1.png" id="2_5tj5r"]
+[ext_resource type="Texture2D" uid="uid://dxtaa6h5en2ny" path="res://Assets/-0.0003 BTC (3).png" id="2_v35y8"]
 [ext_resource type="Texture2D" uid="uid://btv2wbwks83yt" path="res://Assets/correcto blockchain.png" id="3_5tj5r"]
 [ext_resource type="Texture2D" uid="uid://r6t665ia17s5" path="res://Assets/bloque 3.png" id="4_xsy5n"]
+[ext_resource type="Texture2D" uid="uid://bh864yq3f3x5g" path="res://Assets/-0.0003 BTC (13).png" id="8_880i7"]
+[ext_resource type="Texture2D" uid="uid://bksph442eopdg" path="res://Assets/-0.0003 BTC (8).png" id="9_1l88o"]
+[ext_resource type="Texture2D" uid="uid://cb7t5n4lrxmau" path="res://Assets/-0.0003 BTC (11).png" id="10_pjjv0"]
+[ext_resource type="Texture2D" uid="uid://dc7kv15w5rjyj" path="res://Assets/-0.0003 BTC (12).png" id="11_ofryd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsy5n"]
 atlas = ExtResource("3_5tj5r")
@@ -36,6 +42,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=194413211]
+script = ExtResource("1_jwfyw")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1644492877]
 offset_left = -305.0
@@ -43,7 +50,12 @@ offset_top = -204.0
 offset_right = 295.0
 offset_bottom = 196.0
 
+[node name="0_0003Btc(3)" type="Sprite2D" parent="." unique_id=328455967]
+position = Vector2(20, -86)
+texture = ExtResource("2_v35y8")
+
 [node name="TextureRect" parent="." unique_id=805871423 instance=ExtResource("1_csrrm")]
+visible = false
 offset_left = -15.0
 offset_top = -33.0
 offset_right = 49.0
@@ -51,12 +63,14 @@ offset_bottom = 31.0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect5" parent="." unique_id=1998817001 instance=ExtResource("1_csrrm")]
+visible = false
 offset_left = -152.0
 offset_top = -34.0
 offset_right = -88.0
 offset_bottom = 30.0
 
 [node name="TextureRect7" parent="." unique_id=760249060 instance=ExtResource("1_csrrm")]
+visible = false
 offset_left = 125.0
 offset_top = -32.0
 offset_right = 189.0
@@ -89,6 +103,11 @@ stretch_mode = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=71338150]
 zoom = Vector2(2.2, 2.2)
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1371676791]
+position = Vector2(86, 1)
+sprite_frames = SubResource("SpriteFrames_drks2")
+frame_progress = 0.9018987
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=28471523]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1240160955]
@@ -99,7 +118,33 @@ frame_progress = 0.000396808
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=925644643]
 position = Vector2(138, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D2" unique_id=1371676791]
-position = Vector2(-52, 0)
-sprite_frames = SubResource("SpriteFrames_drks2")
-frame_progress = 0.9018987
+[node name="Flecha 1" type="Sprite2D" parent="." unique_id=282011442]
+position = Vector2(-190, -5)
+scale = Vector2(0.23380569, 0.24770117)
+texture = ExtResource("8_880i7")
+
+[node name="Bloque" type="Sprite2D" parent="." unique_id=668510084]
+position = Vector2(-174, 78)
+scale = Vector2(0.26700002, 0.26999998)
+texture = ExtResource("10_pjjv0")
+
+[node name="Huella" type="Sprite2D" parent="." unique_id=94478813]
+position = Vector2(18, 84)
+scale = Vector2(0.248, 0.256)
+texture = ExtResource("9_1l88o")
+
+[node name="Flecha 2" type="Sprite2D" parent="." unique_id=1857540052]
+position = Vector2(133, 26)
+rotation = -0.85810167
+scale = Vector2(0.23380569, 0.24770117)
+texture = ExtResource("8_880i7")
+
+[node name="Cadena" type="Sprite2D" parent="." unique_id=2097923337]
+position = Vector2(169.62502, 87.37501)
+scale = Vector2(0.2614999, 0.27849996)
+texture = ExtResource("11_ofryd")
+
+[node name="Timer" type="Timer" parent="." unique_id=1815397202]
+
+[node name="Timer2" type="Timer" parent="." unique_id=2015346886]
+wait_time = 4.0
