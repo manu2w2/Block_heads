@@ -6,7 +6,7 @@
 .godot/
 .import/
 .nomedia
-*.uid
+
 *.translation
 
 # ── Exportación ───────────────────────────────
