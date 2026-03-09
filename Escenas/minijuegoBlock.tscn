@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://cp8bo5ubeodil"]
+[gd_scene format=3 uid="uid://bexl3j3fs2fiw"]
 
 [ext_resource type="Texture2D" uid="uid://ceo82icqiq3j4" path="res://Assets/animacion blockchain.png" id="1_ess8a"]
+[ext_resource type="Script" uid="uid://dg58rlsteddy0" path="res://transtominijuego.gd" id="1_g51hq"]
+[ext_resource type="Script" uid="uid://b8oxm8ewmowx3" path="res://introbloques.gd" id="2_7xtdm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xtdm"]
 atlas = ExtResource("1_ess8a")
@@ -95,6 +97,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=554913687]
+script = ExtResource("1_g51hq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2145827867]
 
@@ -102,3 +105,8 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_c54tw")
 frame = 4
 frame_progress = 0.42269126
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1685192700]
+position = Vector2(-1, 0)
+zoom = Vector2(2.2, 2.2)
+script = ExtResource("2_7xtdm")

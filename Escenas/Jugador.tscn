@@ -208,6 +208,7 @@ metadata/_edit_vertical_guides_ = [2.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1244790209]
 script = ExtResource("1_wtcfe")
+speed = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=475388360]
 texture_filter = 1

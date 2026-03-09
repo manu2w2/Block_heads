@@ -9,4 +9,4 @@ func _drop_data(_pos, data):
 	if data is TextureRect and data.name == "Naranja":
 		# Copiamos la textura de Rojo
 		texture = data.texture
-		get_tree().change_scene_to_file("res://block chain bien.tscn")
+		get_tree().change_scene_to_file("res://Escenas/block chain bien.tscn")

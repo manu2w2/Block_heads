@@ -9,8 +9,6 @@ func _input_event(_viewport, event, _shape_idx):
 		if event.pressed:
 			sprite_resultado.visible = true
 			nuevo_sprite.visible = !nuevo_sprite.visible
-			await get_tree().create_timer(2.0).timeout
+			
 			sprite_resultado.visible = false
-			# Iniciar el Timer
-
-	get_tree().change_scene_to_file("res://Escenas/market.tscn")
+	get_tree().change_scene_to_file("res://Escenas/escritorio.tscn")

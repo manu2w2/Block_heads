@@ -67,7 +67,7 @@ func _ready() -> void:
 	
 	# Esperar a que el Timer haga timeout
 	await timerr.timeout
-	get_tree().change_scene_to_file("res://minijuegoBlock.tscn")
+	get_tree().change_scene_to_file("res://Escenas/minijuegoBlock.tscn")
 	
 	
 	

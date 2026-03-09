@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://c7gsdumtpu8yl"]
+[gd_scene format=3 uid="uid://p85mfc4lh8uw"]
 
 [ext_resource type="Script" uid="uid://cdqh3wbecgkja" path="res://hash.gd" id="1_7pn0i"]
 [ext_resource type="Texture2D" uid="uid://s7dxcf8gkvqd" path="res://Assets/fondo blockchain.png" id="1_ely8q"]
-[ext_resource type="Script" uid="uid://bbubfkid4qkhp" path="res://static_body_2d.gd" id="2_rxtpn"]
 [ext_resource type="Texture2D" uid="uid://btylju8wpprla" path="res://Assets/bloque 1.png" id="3_7pn0i"]
 [ext_resource type="Texture2D" uid="uid://b884s2qpo7kbv" path="res://Assets/bloque 2.png" id="4_rxtpn"]
 [ext_resource type="Texture2D" uid="uid://r6t665ia17s5" path="res://Assets/bloque 3.png" id="5_gotiu"]
@@ -12,7 +11,6 @@ script = ExtResource("1_7pn0i")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1674363064 groups=["dropable"]]
 position = Vector2(-3, 0)
-script = ExtResource("2_rxtpn")
 
 [node name="FondoBlockchain" type="Sprite2D" parent="StaticBody2D" unique_id=2025665380]
 texture = ExtResource("1_ely8q")

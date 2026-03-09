@@ -1,2 +1,3 @@
-# Script para un Node2D que controle la colisión de B1
 extends Node2D
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

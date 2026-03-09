@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://den0l2g11vqq8"]
+[gd_scene format=3 uid="uid://jwywauo8xo"]
 
-[ext_resource type="Script" uid="uid://cd3rtomh4vbju" path="res://block_chain_incorrecto.gd" id="1_534nt"]
-[ext_resource type="PackedScene" uid="uid://ca8d103y0s7yx" path="res://texture_rect.tscn" id="1_ksumv"]
+[ext_resource type="Script" uid="uid://dgvixstay73nn" path="res://block_chain_incorrecto.gd" id="1_534nt"]
+[ext_resource type="PackedScene" uid="uid://dw44xhvx63vky" path="res://Escenas/texture_rect.tscn" id="1_ksumv"]
 [ext_resource type="Texture2D" uid="uid://b884s2qpo7kbv" path="res://Assets/bloque 2.png" id="2_534nt"]
 [ext_resource type="Texture2D" uid="uid://f6mrifd2n0cd" path="res://Assets/incorrecto blockchain.png" id="3_il1fu"]
 

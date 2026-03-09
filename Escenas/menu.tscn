@@ -145,6 +145,9 @@ text = "Volumen Efectos"
 [node name="SliderEfectos" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=200603387]
 layout_mode = 2
 size_flags_horizontal = 3
+min_value = -40.0
+max_value = 0.0
+value = -5.0
 tick_count = 5
 ticks_on_borders = true
 
