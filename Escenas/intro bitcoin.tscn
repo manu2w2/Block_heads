@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://csxg4343qr5yr"]
+
+[ext_resource type="Script" uid="uid://crgvm2nia2au7" path="res://Scripts/Introbitcoin.gd" id="1_1s3fg"]
+[ext_resource type="Texture2D" uid="uid://bx3qfr4xbeeyw" path="res://Assets/animacion que es bitcoin.png" id="1_ftwvb"]
+[ext_resource type="Texture2D" uid="uid://wt3ouos1c1l5" path="res://Sprites/Karlanpc.png" id="2_c0o1p"]
+[ext_resource type="Texture2D" uid="uid://ph3h4ygf246x" path="res://Sprites/Unarmed_Idle_front.png" id="3_qldxd"]
+[ext_resource type="Texture2D" uid="uid://bkxgipt4unpak" path="res://Assets/bitcoin moneda.png" id="4_vs21g"]
+[ext_resource type="Texture2D" uid="uid://bnhlccqq6asku" path="res://Assets/-0.0003 BTC (1).png" id="5_vs21g"]
+[ext_resource type="Texture2D" uid="uid://cgojcxp2ct70s" path="res://Assets/-0.0003 BTC.png" id="6_1s3fg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xawn"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(0, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3yq8"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(512, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0o1p"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(1024, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qldxd"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(1536, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs21g"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(2048, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s3fg"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(2560, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls3lp"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(3072, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u41mg"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(3584, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbxcf"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(4096, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi25s"]
+atlas = ExtResource("1_ftwvb")
+region = Rect2(4608, 0, 512, 284)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qteg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xawn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3yq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0o1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qldxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs21g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s3fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls3lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u41mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbxcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi25s")
+}],
+"loop": false,
+"name": &"texto btc",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qteg6"]
+atlas = ExtResource("2_c0o1p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxhhg"]
+atlas = ExtResource("2_c0o1p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt3kp"]
+atlas = ExtResource("2_c0o1p")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_052wb"]
+atlas = ExtResource("2_c0o1p")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iitfj"]
+atlas = ExtResource("2_c0o1p")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xywn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qteg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxhhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt3kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_052wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitfj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=712280473]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1605695128]
+script = ExtResource("1_1s3fg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1389279526]
+position = Vector2(1, 5)
+sprite_frames = SubResource("SpriteFrames_qteg6")
+animation = &"texto btc"
+
+[node name="Panel" type="Panel" parent="StaticBody2D" unique_id=1970423178]
+offset_left = -182.0
+offset_top = 10.0
+offset_right = 183.0
+offset_bottom = 107.0
+
+[node name="BitcoinMoneda" type="Sprite2D" parent="StaticBody2D" unique_id=105177183]
+position = Vector2(-1, 61)
+scale = Vector2(0.109000005, 0.117)
+texture = ExtResource("4_vs21g")
+
+[node name="Karla Nick" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=397586710]
+position = Vector2(-123, 68)
+scale = Vector2(3.8125, 3.8749998)
+sprite_frames = SubResource("SpriteFrames_xywn5")
+
+[node name="Ulibongles" type="Sprite2D" parent="StaticBody2D" unique_id=1816217657]
+position = Vector2(135, 69)
+scale = Vector2(4.46875, 4.6874995)
+texture = ExtResource("3_qldxd")
+
+[node name="0_0003Btc(1)" type="Sprite2D" parent="StaticBody2D" unique_id=1979544489]
+position = Vector2(118, 2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_vs21g")
+
+[node name="0_0003Btc" type="Sprite2D" parent="StaticBody2D" unique_id=1917656689]
+position = Vector2(-132, 2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_1s3fg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=17299538]
+position = Vector2(-1, 0)
+zoom = Vector2(2.2, 2.2)
+
+[node name="Timer" type="Timer" parent="." unique_id=899516864]

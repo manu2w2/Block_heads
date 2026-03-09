@@ -1,13 +1,13 @@
 extends Control
 
-@onready var music: AudioStreamPlayer = $Musica
+
 @onready var options_panel: PanelContainer = $PanelContainer
 @onready var music_slider: HSlider = $PanelContainer/VBoxContainer/HBoxContainer/SliderVolumen
 @onready var sfx_slider: HSlider = $PanelContainer/VBoxContainer/HBoxContainer2/SliderEfectos
 @onready var fullscreen_btn: CheckButton = $PanelContainer/VBoxContainer/FullScreen
 
 func _ready() -> void:
-	music.play()
+	
 	
 	options_panel.hide()
 	music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))

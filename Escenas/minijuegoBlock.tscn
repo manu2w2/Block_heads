@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bexl3j3fs2fiw"]
+
+[ext_resource type="Texture2D" uid="uid://ceo82icqiq3j4" path="res://Assets/animacion blockchain.png" id="1_ess8a"]
+[ext_resource type="Script" uid="uid://dg58rlsteddy0" path="res://transtominijuego.gd" id="1_g51hq"]
+[ext_resource type="Script" uid="uid://b8oxm8ewmowx3" path="res://introbloques.gd" id="2_7xtdm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xtdm"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(0, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g51hq"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(512, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi837"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(1024, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agckm"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(1536, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2lde"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(2048, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w3bp"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(2560, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk1vl"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(3072, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1we5u"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(3584, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6ji"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(4096, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnifj"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(4608, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_207vn"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(5120, 0, 512, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qhkl"]
+atlas = ExtResource("1_ess8a")
+region = Rect2(5632, 0, 512, 284)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c54tw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xtdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g51hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi837")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agckm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2lde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w3bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk1vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1we5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk6ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnifj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_207vn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qhkl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=554913687]
+script = ExtResource("1_g51hq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2145827867]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=416467990]
+sprite_frames = SubResource("SpriteFrames_c54tw")
+frame = 4
+frame_progress = 0.42269126
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1685192700]
+position = Vector2(-1, 0)
+zoom = Vector2(2.2, 2.2)
+script = ExtResource("2_7xtdm")

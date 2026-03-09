@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dvvxknr8yxvsd"]
+
+[ext_resource type="Texture2D" uid="uid://s7dxcf8gkvqd" path="res://Assets/fondo blockchain.png" id="1_8ixo3"]
+[ext_resource type="Texture2D" uid="uid://bslbu12jt74ml" path="res://Assets/cuadro.png" id="2_nclmo"]
+[ext_resource type="Texture2D" uid="uid://btylju8wpprla" path="res://Assets/bloque 1.png" id="3_uxk2l"]
+[ext_resource type="Texture2D" uid="uid://b884s2qpo7kbv" path="res://Assets/bloque 2.png" id="4_an5y8"]
+[ext_resource type="Texture2D" uid="uid://r6t665ia17s5" path="res://Assets/bloque 3.png" id="5_n87h2"]
+[ext_resource type="Texture2D" uid="uid://btv2wbwks83yt" path="res://Assets/correcto blockchain.png" id="6_lcgie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq27w"]
+atlas = ExtResource("6_lcgie")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56t7i"]
+atlas = ExtResource("6_lcgie")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkgit"]
+atlas = ExtResource("6_lcgie")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bekh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq27w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56t7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkgit")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=399773416]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=920022580]
+position = Vector2(-4, -7)
+
+[node name="FondoBlockchain" type="Sprite2D" parent="StaticBody2D" unique_id=657795154]
+texture = ExtResource("1_8ixo3")
+
+[node name="Cuadro" type="Sprite2D" parent="StaticBody2D" unique_id=492197856]
+position = Vector2(-155, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_nclmo")
+
+[node name="Cuadro2" type="Sprite2D" parent="StaticBody2D" unique_id=1962735915]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_nclmo")
+
+[node name="Cuadro3" type="Sprite2D" parent="StaticBody2D" unique_id=466306640]
+position = Vector2(158, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_nclmo")
+
+[node name="Bloque1" type="Sprite2D" parent="." unique_id=1097415805]
+position = Vector2(-155, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_uxk2l")
+
+[node name="Bloque2" type="Sprite2D" parent="." unique_id=1493681777]
+position = Vector2(-4, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("4_an5y8")
+
+[node name="Bloque3" type="Sprite2D" parent="." unique_id=284806576]
+position = Vector2(156, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("5_n87h2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=39487913]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D2" unique_id=1471760914]
+position = Vector2(-82, 0)
+sprite_frames = SubResource("SpriteFrames_3bekh")
+frame = 2
+frame_progress = 0.64391035
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2056239425]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D3" unique_id=1384793186]
+position = Vector2(73, 1)
+sprite_frames = SubResource("SpriteFrames_3bekh")
+frame = 2
+frame_progress = 0.64391035
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1140207634]
+zoom = Vector2(2.2, 2.2)

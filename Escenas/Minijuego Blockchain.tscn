@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dtvwyqqjqlhdd"]
+
+[ext_resource type="PackedScene" uid="uid://dw44xhvx63vky" path="res://Escenas/texture_rect.tscn" id="1_hml3e"]
+[ext_resource type="Script" uid="uid://blwdojugv5f53" path="res://minijuego_blockchain.gd" id="1_w8mvm"]
+[ext_resource type="Texture2D" uid="uid://b884s2qpo7kbv" path="res://Assets/bloque 2.png" id="2_ol7qc"]
+[ext_resource type="Texture2D" uid="uid://r6t665ia17s5" path="res://Assets/bloque 3.png" id="2_x562v"]
+[ext_resource type="Texture2D" uid="uid://btylju8wpprla" path="res://Assets/bloque 1.png" id="3_w8mvm"]
+[ext_resource type="Script" uid="uid://xki7kfqywq1s" path="res://b1.gd" id="3_x24ni"]
+[ext_resource type="Script" uid="uid://cgmafl2qo3hqf" path="res://rojo.gd" id="4_5yr8x"]
+[ext_resource type="Script" uid="uid://ciovv2k47ger5" path="res://B2.gd" id="6_ygnvf"]
+[ext_resource type="Script" uid="uid://bpl158t5qhorb" path="res://Verde.gd" id="8_pstx5"]
+[ext_resource type="Script" uid="uid://ddd7cqm53xij" path="res://B3.gd" id="9_e1yri"]
+[ext_resource type="Script" uid="uid://14mtlvrxepk5" path="res://Naranjaaa.gd" id="11_goy6s"]
+[ext_resource type="Texture2D" uid="uid://bq3ttr2kjjfk4" path="res://Assets/-0.0003 BTC (2).png" id="12_goy6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yr8x"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8mvm"]
+size = Vector2(64, 65)
+
+[node name="test" type="Node2D" unique_id=1436936037]
+script = ExtResource("1_w8mvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1440866723]
+offset_left = -288.0
+offset_top = -152.0
+offset_right = 312.0
+offset_bottom = 248.0
+color = Color(0.28338373, 0.014886215, 0.41907024, 1)
+
+[node name="B1" parent="." unique_id=1858106282 groups=["drop_target"] instance=ExtResource("1_hml3e")]
+offset_left = -153.0
+offset_top = -34.0
+offset_right = -89.0
+offset_bottom = 30.0
+script = ExtResource("3_x24ni")
+
+[node name="B1" type="StaticBody2D" parent="B1" unique_id=1171604107]
+
+[node name="Area2D" type="Area2D" parent="B1/B1" unique_id=1220758786]
+
+[node name="ColisionB1" type="CollisionShape2D" parent="B1/B1/Area2D" unique_id=213042021]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_5yr8x")
+
+[node name="Rojo" parent="." unique_id=1951172632 instance=ExtResource("1_hml3e")]
+offset_left = -32.0
+offset_top = 90.0
+offset_right = 32.0
+offset_bottom = 154.0
+texture = ExtResource("3_w8mvm")
+stretch_mode = 1
+script = ExtResource("4_5yr8x")
+
+[node name="Rojo" type="StaticBody2D" parent="Rojo" unique_id=1225699822]
+
+[node name="Area2D" type="Area2D" parent="Rojo/Rojo" unique_id=559161523]
+
+[node name="ColisionRojo" type="CollisionShape2D" parent="Rojo/Rojo/Area2D" unique_id=1591882641]
+
+[node name="B2" parent="." unique_id=805871423 instance=ExtResource("1_hml3e")]
+offset_left = -16.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 31.0
+script = ExtResource("6_ygnvf")
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="B2" unique_id=1763920070]
+position = Vector2(-5, -72)
+
+[node name="ColisionB2" type="CollisionShape2D" parent="B2/StaticBody2D" unique_id=476184038]
+
+[node name="Verde" parent="." unique_id=1562030828 instance=ExtResource("1_hml3e")]
+offset_left = 129.0
+offset_top = 84.0
+offset_right = 193.0
+offset_bottom = 148.0
+texture = ExtResource("2_ol7qc")
+stretch_mode = 1
+script = ExtResource("8_pstx5")
+
+[node name="staticbody" type="StaticBody2D" parent="Verde" unique_id=461468521]
+position = Vector2(31, 31)
+
+[node name="ColisionVerde" type="CollisionShape2D" parent="Verde/staticbody" unique_id=971135564]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w8mvm")
+
+[node name="B3" parent="." unique_id=1843393939 instance=ExtResource("1_hml3e")]
+offset_left = 124.0
+offset_top = -32.0
+offset_right = 188.0
+offset_bottom = 32.0
+script = ExtResource("9_e1yri")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="B3" unique_id=721277615]
+
+[node name="ColisionB3" type="CollisionShape2D" parent="B3/StaticBody2D" unique_id=450131691]
+
+[node name="Naranja" parent="." unique_id=2061141028 instance=ExtResource("1_hml3e")]
+offset_left = -196.0
+offset_top = 85.0
+offset_right = -132.0
+offset_bottom = 149.0
+texture = ExtResource("2_x562v")
+stretch_mode = 1
+script = ExtResource("11_goy6s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Naranja" unique_id=2003480844]
+
+[node name="ColisionNaranja" type="CollisionShape2D" parent="Naranja/StaticBody2D" unique_id=532526511]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1124358103]
+position = Vector2(-1, 0)
+zoom = Vector2(2.2, 2.2)
+
+[node name="0_0003Btc(2)" type="Sprite2D" parent="." unique_id=244805216]
+position = Vector2(11, -95)
+texture = ExtResource("12_goy6s")
