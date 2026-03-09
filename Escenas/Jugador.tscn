@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg5jjw2wi3iax"]
 
 [ext_resource type="Texture2D" uid="uid://c24if7pbwlrnu" path="res://Sprites/Gongorita-Sheet.png" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://djufw81m7qgvs" path="res://Scripts/character_body_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://bj2n55o5sugyv" path="res://Scripts/character_body_2d.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://dukykd4xdvfu2" path="res://Sprites/Gongorita-walk-back.png" id="2_muoba"]
 [ext_resource type="Texture2D" uid="uid://6tkjgc124ox3" path="res://Sprites/Gongorita-walk-front.png" id="3_fwv5a"]
 [ext_resource type="Texture2D" uid="uid://vgixuucqfi4w" path="res://Sprites/Gongorita_walk.png" id="5_btktc"]
@@ -200,8 +200,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d7sh"]
-radius = 4.666668
-height = 9.333336
+radius = 4.0
+height = 8.0
 
 [node name="Jugador" type="Node2D" unique_id=1051558539]
 metadata/_edit_vertical_guides_ = [2.0]

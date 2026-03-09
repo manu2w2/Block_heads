@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dg5jjw2wi3iax" path="res://Escenas/Jugador.tscn" id="2_mra4r"]
 [ext_resource type="Texture2D" uid="uid://dyylgs46y1tgl" path="res://Assets/Interior.png" id="3_283bp"]
-[ext_resource type="Script" uid="uid://co7co6cjsoika" path="res://Scripts/interactable.gd" id="6_emfca"]
-[ext_resource type="Script" uid="uid://dsxiydhllci35" path="res://Escenas/escritorio.gd" id="6_rit2b"]
+[ext_resource type="Script" uid="uid://0crrydl5tigc" path="res://Escenas/escritorio.gd" id="6_rit2b"]
 [ext_resource type="Texture2D" uid="uid://dadv1a80c844v" path="res://Assets/officetiles.png" id="6_sl63h"]
 [ext_resource type="Texture2D" uid="uid://b78xrnsv57sd8" path="res://Assets/Full Spritesheet.png" id="7_tkdhn"]
 [ext_resource type="Texture2D" uid="uid://5bmvw8wmxcu6" path="res://Assets/InteriorTilesLITE.png" id="7_tp44w"]
+[ext_resource type="PackedScene" uid="uid://bataee1o4ljjo" path="res://Escenas/interactable.tscn" id="8_tp44w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyyj3"]
 texture = ExtResource("7_tkdhn")
@@ -9600,7 +9600,7 @@ a = Vector2(162, 77)
 b = Vector2(174, 77)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tkdhn"]
-a = Vector2(173, 50)
+a = Vector2(173, 52)
 b = Vector2(173, 78)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_r03ks"]
@@ -9647,8 +9647,8 @@ size = Vector2(69, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bs7o"]
 size = Vector2(28, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sujwt"]
-size = Vector2(49, 54)
+[sub_resource type="CircleShape2D" id="CircleShape2D_emfca"]
+radius = 40.261642
 
 [node name="Interior" type="Node2D" unique_id=67710323]
 
@@ -9705,6 +9705,12 @@ limit_bottom = 230
 
 [node name="InteractingComponent" parent="Jugador/CharacterBody2D" index="3" unique_id=970504961]
 position = Vector2(-0.6666654, 1.3333333)
+
+[node name="InteractLabel" parent="Jugador/CharacterBody2D/InteractingComponent" index="1" unique_id=2037923326]
+offset_left = -46.666668
+offset_top = -33.333332
+offset_right = 48.333332
+offset_bottom = -10.333332
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1949687699]
 
@@ -9844,14 +9850,12 @@ script = ExtResource("6_rit2b")
 position = Vector2(111, 15)
 shape = SubResource("RectangleShape2D_3bs7o")
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D2" unique_id=661189063]
-script = ExtResource("6_emfca")
-interact_name = "Entrar al escritorio"
+[node name="Interactable" parent="StaticBody2D2" unique_id=1416407943 instance=ExtResource("8_tp44w")]
+interact_name = "Entrar a Computadora"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D" unique_id=36937743]
-light_mask = 0
-visibility_layer = 2
-position = Vector2(111.5, 16)
-shape = SubResource("RectangleShape2D_sujwt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Interactable" unique_id=1966857803]
+position = Vector2(111, 15)
+shape = SubResource("CircleShape2D_emfca")
 
 [editable path="Jugador"]
+[editable path="Jugador/CharacterBody2D/InteractingComponent"]

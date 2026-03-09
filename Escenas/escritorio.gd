@@ -1,5 +1,5 @@
 extends StaticBody2D
-@onready var Entraresc: Area2D = $Area2D
+@onready var Entraresc: Area2D = $Interactable
 func _ready() -> void:
 	Entraresc.interact = _on_interact
 
